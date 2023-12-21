@@ -1,0 +1,272 @@
+{%extends 'master_login.html'%}
+{%block title%}Interview Score {%endblock%}
+{% load static%}
+{% load static %}
+{% block logout%}
+<li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+{%endblock%}
+{%block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/reject_candidates.css'%}">
+{% endblock%}
+{%block main%}
+<style>
+.apply_candidate_form
+{
+    
+
+  border-top: 3px solid #47b2e4;
+  border-bottom: 3px solid #47b2e4;
+ 
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+}
+@media screen and (max-width: 600px) {
+  table thead {
+    display: none;
+  }
+  table td {
+    display: flex;
+  }
+  
+  table td::before {
+    content: attr(label);
+    font-weight: bold;
+    width: 120px;
+    min-width: 120px;
+  }
+}
+ table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+ 
+        tr {
+            border-bottom: 1px solid black;
+        }
+        {% comment %} .container {
+
+            max-width: 800px;
+
+            margin: 20px auto;
+
+            padding: 20px;
+
+            background-color: #fff;
+
+            border-radius: 5px;
+
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        } {% endcomment %}
+
+
+
+        h1 {
+
+            font-size: 24px;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+
+        }
+
+
+
+        .score-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin-top: 20px;
+
+        }
+
+
+
+        .score-table th, .score-table td {
+
+            border: 1px solid #ddd;
+
+            padding: 12px;
+
+            text-align: left;
+
+        }
+
+
+
+        .score-table th {
+
+            background-color: #f2f2f2;
+
+        }
+
+
+
+      
+
+        .btn-container {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+        }
+
+
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 10px 20px;
+
+            background-color: #007BFF;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            margin-right: 10px;
+
+        } -->
+
+        .btn-reject {
+
+            background-color: #FF0000;
+
+        }
+
+
+
+        .btn:hover {
+
+            background-color: #0056b3;
+
+        }
+
+
+</style> 
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="https://admin.simplisolve.us/dashboard/">Dashboard</a></li>
+          <li>Interview Score </li>
+        </ol>
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+    <section class="inner-page">
+      <div class="container">
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Interview Score </h2>
+
+          <section id="contact" class="contact d-flex justify-content-center">
+            {% comment %} <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch container  "> {% endcomment %}
+                <div class="container form-container apply_candidate_form">
+                    {% comment %} <div class="container"> {% endcomment %}
+                    {% for candidate_score in candidate_scores %}
+
+                    <h2>{{ candidate_score.candidate }}</h2>
+            
+                    <table class="score-table">
+            
+                        <thead>
+            
+                            <tr>
+            
+                                <th>Question</th>
+            
+                                <th>Arafat's Score</th>
+            
+                                <th>Helal's Score</th>
+            
+                                <th>Mujib's Score</th>
+            
+                            </tr>
+            
+                        </thead>
+            
+                        <tbody>
+            
+                            <tr>
+            
+                                <td>{{ candidate_score.question_1 }}</td>
+            
+                                <td>{{ candidate_score.arafat_score_1 }}</td>
+            
+                                <td>{{ candidate_score.helal_score_1 }}</td>
+            
+                                <td>{{ candidate_score.mujib_score_1 }}</td>
+            
+                            </tr>
+            
+                            <tr>
+            
+                                <td>{{ candidate_score.question_2 }}</td>
+            
+                                <td>{{ candidate_score.arafat_score_2 }}</td>
+            
+                                <td>{{ candidate_score.helal_score_2 }}</td>
+            
+                                <td>{{ candidate_score.mujib_score_2 }}</td>
+            
+                            </tr>
+            
+                            <tr>
+            
+                                <td>{{ candidate_score.question_3 }}</td>
+            
+                                <td>{{ candidate_score.arafat_score_3 }}</td>
+            
+                                <td>{{ candidate_score.helal_score_3 }}</td>
+            
+                                <td>{{ candidate_score.mujib_score_3 }}</td>
+            
+                            </tr>
+            
+                        </tbody>
+            
+                    </table>
+            
+                    {% endfor %}
+            
+            
+            
+                    <!-- Select and Reject Buttons -->
+            
+                    <div class="btn-container">
+            
+                        <button class="btn btn-select">Select</button>
+            
+        
+            
+                    </div>
+                  
+</div>
+</section>
+</div>
+
+</div>
+</section>
+</div>
+</section>
+
+
+</main>
+<script src="{% static 'js/reject_candidates.js'%}"></script>
+
+
+{%endblock%}

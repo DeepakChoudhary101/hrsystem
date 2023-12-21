@@ -1,0 +1,412 @@
+{% extends 'master_login.html' %}
+
+{% block title %}Salary Expectation{% endblock %}
+
+{% load static %}
+
+{% block logout %}
+
+  <li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+
+{% endblock %}
+
+
+
+{% block main %}
+
+<style>
+
+  .error {
+
+    background-color: #ffe4e5;
+
+    display: inline-block;
+
+    padding: 3px;
+
+    margin: 8px;
+
+  }
+
+
+
+  .error:empty {
+
+    display: none;
+
+    padding: 0;
+
+    margin: 0;
+
+    background-color: transparent;
+
+  }
+
+
+
+  .form-container form .file-upload .resume-text #id_resume {
+
+    max-width: 235px;
+
+    width: 100%;
+
+    display: block;
+
+    margin: 0 auto 0;
+
+    padding: 0 6px;
+
+  }
+
+
+
+  .form-container form .file-upload {
+
+    margin: 0 auto 0;
+
+    display: block;
+
+    text-align: center;
+
+  }
+
+
+
+  .form-container form .file-upload .file-input-label {
+
+    font-size: 13px;
+
+    line-height: 20px;
+
+    max-width: 200px;
+
+    height: 40px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #0201011F;
+
+    border-radius: 4px;
+
+    margin: 0 auto 28px;
+
+  }
+
+
+
+  .form-container .field-wrapper .phone-number-group {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+  }
+
+
+
+  .form-container .field-wrapper .phone-number-group #id_cobade {
+
+    width: 65px;
+
+    padding: 6px;
+
+    text-align: center;
+
+  }
+
+
+
+  .form-container .field-wrapper .phone-number-group #id_phone_number {
+
+    width: calc(98% - 65px);
+
+  }
+
+
+
+  .form-container form input,
+
+  .form-container form select {
+
+    font-family: "Open Sans", Sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    text-transform: none;
+
+    font-style: normal;
+
+    text-decoration: none;
+
+    line-height: 24px;
+
+    border-color: #0201011F;
+
+    border-width: 1px 1px 1px 1px;
+
+    border-radius: 4px 4px 4px 4px;
+
+    width: 100%;
+
+    height: 44px;
+
+    padding: 6px 14px;
+
+    box-sizing: border-box;
+
+  }
+
+
+
+  .form-container form .button-wrapp .submit-btn {
+
+    color: #ffffff;
+
+    background-color: #47B2E4;
+
+    font-family: "Open Sans", Sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    text-transform: none;
+
+    font-style: normal;
+
+    text-decoration: none;
+
+    line-height: 24px;
+
+    border-style: none;
+
+    border-radius: 50px 50px 50px 50px;
+
+    padding: 12px 20px 12px 20px;
+
+    min-width: 180px;
+
+    margin: 5px auto;
+
+    display: block;
+
+  }
+
+
+
+  .apply_candidate_form {
+
+    border-top: 3px solid #47b2e4;
+
+    border-bottom: 3px solid #47b2e4;
+
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+
+    margin-top: 20px;
+
+  }
+
+
+
+  #rad {
+
+    border: 2px solid red;
+
+    background: red;
+
+    width: 100px;
+
+  }
+
+
+
+  table {
+
+    border-collapse: collapse;
+
+    width: 100%;
+
+  }
+
+
+
+  th, td {
+
+    text-align: left;
+
+    padding: 12px;
+
+    border-bottom: 1px solid #ddd;
+
+  }
+
+
+
+  .candidate-details-container {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding: 20px;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  }
+
+
+
+  .details-label {
+
+    font-weight: bold;
+
+  }
+
+
+
+  .label_review_salary {
+
+    margin: 2%;
+
+  }
+
+</style>
+
+
+
+<main id="main">
+
+  <section id="breadcrumbs" class="breadcrumbs">
+
+    <div class="container">
+
+      <ol>
+
+        <li><a href="https://admin.simplisolve.us/dashboard/">Dashboard</a></li>
+
+        <li>Salary Expectation</li>
+
+      </ol>
+
+    </div>
+
+  </section>
+
+
+
+  <section id="contact" class="contact">
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+
+        <h2>Salary Expectation and Review</h2>
+
+      </div>
+
+
+
+      <div class="row d-flex justify-content-center">
+
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+
+          <div class="container form-container apply_candidate_form">
+
+            <form method="post" action="{% url 'interview' candidate.id1 %}">
+
+              {% csrf_token %}
+
+              <table>
+
+                <tr>
+
+                  <td class="details-label">Name:</td>
+
+                  <td>{{ candidate.first_name }} {{ candidate.last_name }}</td>
+
+                </tr>
+
+
+
+                <tr>
+
+                  <td class="details-label">Phone Number:</td>
+
+                  <td>{{ candidate.phone_number }}</td>
+
+                </tr>
+
+
+
+                <tr>
+
+                  <td class="details-label">Email:</td>
+
+                  <td>{{ candidate.email }}</td>
+
+                </tr>
+
+                <tr>
+
+                  <td class="details-label">Position:</td>
+
+                  <td>{{post}}{{ candidate.post }}</td>
+
+                </tr>
+
+              </table>
+
+
+
+              <label class="label_review_salary" for="review">Review:</label>
+
+              <textarea id="review" name="review" class="form-control" required></textarea>
+
+
+
+              <label class="label_review_salary" for="salary">Salary:</label>
+
+              <input type="text" id="salary" name="salary" class="form-control" required><br>
+
+
+
+              <div class="button-wrapp">
+
+                <button type="submit" class="submit-btn">Submit</button>
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+{% endblock %}
+

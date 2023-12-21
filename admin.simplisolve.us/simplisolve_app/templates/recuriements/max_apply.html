@@ -1,0 +1,38 @@
+{%extends 'master.html'%}
+{%block title %}Maximum Apply{%endblock%}
+{% load static%}
+{%block main%}
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="https://simplisolve.us">Home</a></li>
+          <li>Maximum Apply</li>
+        </ol>
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+  
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+
+
+    <div class="error-container">
+
+        <h1>Maximum Apply Attempts Reached</h1>
+
+        <p>You have tried to Apply too many times.</p>
+
+        <p>try again after {{days}} days</p>
+
+        {% comment %} <p>Please <a href="{% url 'insert' %}">return to the Apply page</a>.</p> {% endcomment %}
+
+    </div>
+</div>
+</section>
+</main>
+{%endblock%}
+

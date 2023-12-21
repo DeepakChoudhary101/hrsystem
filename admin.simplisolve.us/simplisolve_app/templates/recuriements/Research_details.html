@@ -1,0 +1,111 @@
+{%extends 'master_login.html'%}
+{% block title %}Research Scientist candidate data{% endblock %}
+{% load static %}
+{% block logout%}
+<li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+{%endblock%}
+{% block main %}
+<style>
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+}
+
+
+
+</style>
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+    <ol>
+      <li><a href="{% url 'dashboard'                %}">Dashboard                    </a></li>
+     <li><a  href="{% url 'Research_scientist' %}">Research Scientist All Apply </a></li>
+    </ol>
+    <h2>Research Scientist candidate data</h2>
+  </div>
+</section><!-- End Breadcrumbs -->
+
+<section class="inner-page">
+  <div class="container">
+  <!-- ======= Portfolio Section ======= -->
+  {% comment %} <section id="portfolio" class="portfolio"> {% endcomment %}
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+       
+        <section id="contact" class="contact d-flex justify-content-center">
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch container  ">
+            <div class="container">
+                <table>
+                    <tr>
+                        <th>Details</th>
+                        <th>Information</th>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{candidates.first_name}} {{candidates.last_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone number</td>
+                        <td>{{candidates.phone_number}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{candidates.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Salary Expectation</td>
+                        <td>{{candidates.salary_exceptation}}</td>
+                    </tr>
+                    <tr>
+                        <td>Like Working in a Team</td>
+                        <td>{{candidates.like_working_in_team}}</td>
+                    </tr>
+                    <tr>
+                        <td>Experience with ML Framework</td>
+                        <td>{{candidates.experience_with_ml_framework}}</td>
+                    </tr>
+                    <tr>
+                        <td>Research Publications</td>
+                        <td>{{candidates.research_publications}}</td>
+                    </tr>
+                    <tr>
+                        <td>Experience as a Research Scientist</td>
+                        <td>{{candidates.experience_as_research_scientist}}</td>
+                    </tr>
+                    
+                </table>
+             
+            </div>
+          </div>
+        </section>
+
+
+      </div>
+    </div>
+  </section><!-- End Portfolio Section -->
+
+
+
+  </div>
+</section>
+
+   
+
+
+{% endblock %}
+

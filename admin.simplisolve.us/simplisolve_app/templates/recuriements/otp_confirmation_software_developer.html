@@ -1,0 +1,112 @@
+{%extends 'master.html'%}
+{%block main%}
+{%block title %}OTP-Confirmation{%endblock%}
+{% load static %}
+<style>
+
+ .contact .form-container {
+    border-top: 3px solid #47b2e4;
+    border-bottom: 3px solid #47b2e4;
+    padding: 30px;
+    background: #fff;
+    width: 70%;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.1);
+}
+.form-container form input{
+font-family: "Open Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 24px;
+    background-color: #ffffff;
+    border-color: #0201011F;
+    border-width: 1px 1px 1px 1px;
+    border-radius: 4px 4px 4px 4px;
+    width: 70%;
+    height: 44px;
+    padding: 6px 14px;
+    box-sizing: border-box;
+    margin-top:2%;
+
+}
+  
+
+.form-container form .button-wrapp .submit-btn {
+    color: #ffffff;
+    background-color: #47B2E4;
+    font-family: "Open Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 24px;
+    border-style: none;
+    border-radius: 50px 50px 50px 50px;
+    padding: 12px 20px 12px 20px;
+    min-width: 180px;
+    margin: 0 auto;
+    display: block;
+    margin-top:7%;
+}
+#breadcrumbs
+{
+    margin-top:48px;
+}
+</style>
+
+  <main id="main">
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="https://simplisolve.us">Home</a></li>
+          <li>OTP confirmation for software developer application</li>
+        </ol>
+
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Confirm OTP</h2>
+         
+        </div>
+  
+        <div class="row d-flex justify-content-center">
+         
+  
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+        
+            <div class="container form-container">
+              <span class="divider"></span>
+              
+        <form method="post" action="{%url 'confirm_otp_software_developer' candidate_id%}">
+                {% csrf_token %}
+                <div class="field-wrapper two-col-wrapp">
+                  <div class="form-group">
+                      <label for="otp">Enter OTP:</label>
+            <input type="text" id="otp" name="otp" class="form-control">
+                                       </div>
+                 
+                </div>          
+              
+              
+                <div class="button-wrapp">
+                  <button type="submit" class="submit-btn">Submit</button>
+                </div>
+                
+                {% if error_message %}
+            <p style="color:red;" class="error-message">{{ error_message }}</p>
+            {% endif %}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{%endblock%}

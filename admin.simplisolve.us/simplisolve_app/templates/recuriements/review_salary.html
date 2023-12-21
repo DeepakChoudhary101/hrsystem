@@ -1,0 +1,115 @@
+{%extends 'master_login.html'%}
+{% block title %}Review & Salary{% endblock %}
+{% load static %}
+{% block logout%}
+<li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+{%endblock%}
+{% block main %}
+<style>
+
+.link_a  {
+  border-radius:2px;
+  color:white;
+  margin:auto;
+  background-color:#47b2e4;
+  text-decoration:none;
+  font-weight: bold;
+  
+
+  padding: 20px;  
+  border:none;
+  width:60%;
+  display:block;
+}
+
+.link_a:hover {
+
+  
+
+  border-radius: 5px;
+
+  background-color: white;
+
+  color:goldenrod;
+
+}
+.detai
+{
+  width:60%;
+    background:#47b2e4;
+    display:block;
+    margin:auto;
+  color:white;
+  margin-bottom:10px;
+}
+label
+{
+  margin:10px;
+}
+.review-message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    word-wrap: break-word;
+    background-color: #f9f9f9;
+    max-width: 80%;
+    overflow-wrap: break-word;
+    color:black;
+    margin:auto;
+}
+
+
+
+
+
+
+
+
+</style>
+
+<main id="main">
+    <!-- Breadcrumbs content here -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="https://admin.simplisolve.us/dashboard/">Dashboard</a></li>
+          <li>Review & Salary</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="inner-page">
+        <div class="container">
+            <section id="portfolio" class="portfolio">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title">
+                        <h2>Review & Salary</h2>
+                        <div>
+                            <!-- Candidate information -->
+                            <div class="detai">
+                                <label>Salary Expected:</label>
+                                <span>{{ candidate.salary }}</span>
+                            </div>
+                            <div class="detai">
+                                <label>Review:</label>
+                                <div class="review-message">
+                                    <p>{{ candidate.review }}</p>
+                                </div>
+                            </div>
+                            
+                            <!-- New message -->
+                           
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
+
+
+
+ 

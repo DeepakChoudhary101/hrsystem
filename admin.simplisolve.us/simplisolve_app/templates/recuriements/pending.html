@@ -1,0 +1,394 @@
+{% extends 'master_login.html' %}
+
+{% block title %}Pending Call Data{% endblock %}
+
+{% load static %}
+
+{% block logout %}
+
+  <li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+
+{% endblock %}
+
+{% block extra_styles %}
+
+  <!--<link rel="stylesheet" href="{% static 'css/pending.css' %}">-->
+
+{% endblock %}
+
+
+
+{% block main %}
+
+<style>
+
+  table {
+
+    border-collapse: collapse;
+
+    width: 100%;
+
+    margin-top:20px;
+
+    margin-bottom:20px;
+
+    overflow-x: auto;
+
+  }
+
+
+
+  td ,th{
+
+    text-align: left;
+
+    padding: 8px;
+
+  }
+
+  td:hover
+
+  {
+
+  color:#47b2e4;
+
+  
+
+  }
+
+  tr {
+
+    transition: background-color 0.3s;
+
+    border-bottom: 1px solid black;
+
+  }
+
+   
+
+  }td a.link_hover {
+
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    text-decoration: none;
+
+    background-color: #47b2e4;
+
+    color: white;
+
+    border-radius: 3px;
+
+    transition: background-color 0.3s;
+
+  }
+
+
+
+  td a.link_hover:hover {
+
+    background-color: #356b8c;
+
+  }
+
+
+
+  th {
+
+    
+
+    background-color: #47b2e4;
+
+    color: white;
+
+    padding: 12px;
+
+    text-align: left;
+
+   
+
+  }
+
+
+
+  
+
+
+
+  
+
+  #helo {
+
+    border: 1px solid blue;
+
+    border-radius: 8px;
+
+    background-color: yellow;
+
+    color: black;
+
+    width: fit-content;
+
+    padding: 5px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+  }
+
+
+
+  .reject-form {
+
+    display: none;
+
+    margin-top: 10px;
+
+  }
+
+
+
+  .reject-form input[type="text"]
+
+   .reject-form textarea{
+
+   
+
+    width: auto;
+
+    padding: 8px;
+
+    margin-bottom: 10px;
+
+    box-sizing: border-box;
+
+
+
+  }
+
+
+
+  .reject-form input[type="submit"] 
+
+  {
+
+    background-color:#47b2e4;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+  }
+
+
+
+  .reject-form.show {
+
+    display: block;
+
+  }
+
+
+
+  .apply_candidate_form {
+
+    border-top: 3px solid #47b2e4;
+
+    border-bottom: 3px solid #47b2e4;
+
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+
+    margin-top: 20px;
+
+  }
+
+
+
+  @media screen and (max-width: 600px) {
+
+    table thead {
+
+      display: none;
+
+    }
+
+
+
+    table td {
+
+        display: block;
+
+        text-align: left;
+
+      
+
+    }
+
+
+
+    table td::before {
+
+      content: attr(label);
+
+      font-weight: bold;
+
+      width: 100%;
+
+      min-width: 100%;
+
+     
+
+    }
+
+  }
+
+
+
+ 
+
+
+
+  
+
+</style>
+
+
+
+<main id="main">
+
+  <section id="breadcrumbs" class="breadcrumbs">
+
+    <div class="container">
+
+      <ol>
+
+        <li><a href="https://admin.simplisolve.us/dashboard/">Dashboard</a></li>
+
+        <li>Pending Call Data</li>
+
+      </ol>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="inner-page">
+
+    <div class="container">
+
+      <section id="portfolio" class="portfolio">
+
+        <div class="container" data-aos="fade-up">
+
+          <div class="section-title">
+
+            <h2>Pending Call Data</h2>
+
+            <section id="contact" class="contact d-flex justify-content-center">
+
+              <div class="container form-container apply_candidate_form">
+
+                <table>
+
+                  <thead>
+
+                    <tr>
+
+                      <th>Name</th>
+
+                      <th>Phone Number</th>
+
+                      <th>Email</th>
+
+                      <th>Post</th>
+
+                      <th>Resume</th>
+
+                      <th>Accept</th>
+
+                      <th>Reject</th>
+
+                    </tr>
+
+                  </thead>
+
+                  <tbody>
+
+                    {% for destination_candidate in destination_candidates %}
+
+                    <tr>
+
+                      <td>{{destination_candidate.first_name}}</td>
+
+                      <td>{{destination_candidate.phone_number}}</td>
+
+                      <td>{{destination_candidate.email}}</td>
+
+                      <td>{{destination_candidate.post}}</td>
+
+                      <td><a href="{{ destination_candidate.resume.url }}" target="_blank">Download Resume</a></td>
+
+                      <td>
+
+                        <a href="{% url 'update_candidate' destination_candidate.id1 %}">Accept</a>
+
+                      </td>
+
+                      <td>
+
+                        <a  href="{% url 'rejectdata' destination_candidate.id1 %}" class="link_a">Reject</a>
+
+                        <!--<form class="reject-form" method="post" action="{% url 'reject_candidate' destination_candidate.id1 %}">-->
+
+                        <!--  {% csrf_token %}-->
+
+                        <!--  <div><label for="rejection_reason">Rejection Reason:</label></div>-->
+
+                        <!--  <textarea name="rejection_reason" id="rejection_reason" rows="4" required></textarea>-->
+
+                        <!--  <input type="submit" value="Submit">-->
+
+                        <!--</form>-->
+
+                      </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+            </section>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </section>
+
+</main>
+
+<script src="{% static 'js/pending.js' %}"></script>
+
+
+
+{% endblock %}
+

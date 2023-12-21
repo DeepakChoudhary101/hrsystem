@@ -1,0 +1,27 @@
+
+.accept-form {
+    display: none;
+    margin-top: 10px;
+}
+
+.accept-form.show {
+    display: block;
+}
+
+
+.accept-link,
+.reject-link,
+.show-dates-link {
+    text-decoration: none;
+    color: #007BFF;
+    /* Link color */
+    margin-right: 10px;
+}
+
+.accept-link:hover,
+.reject-link:hover,
+.show-dates-link:hover {
+    text-decoration: underline;
+    /* Underline on hover */
+}
+

@@ -1,0 +1,99 @@
+{%extends 'master_login.html'%}
+{% block title %}Reject Data Entry{% endblock %}
+{% load static %}
+{% block logout%}
+<li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+{%endblock%}
+{% block main %}
+<style>
+  /* Styles */
+  .form-container {
+    
+    
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  
+
+  .form-container input[type="text"] {
+    display: inline-block;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    resize:none;
+    width: 30%;
+    
+  }
+  
+   .apply_candidate_form {
+    border-top: 3px solid #47b2e4;
+    border-bottom: 3px solid #47b2e4;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+    margin-top: 20px;
+  }
+
+
+  .iv {
+    display: block; /* Ensures each div is on its own line */
+    margin-bottom: 10px; /* Adjusts space between elements */
+}
+@media (max-width: 768px) {
+    .form-container input[type="text"],
+    .form-container textarea {
+      width: 100%; /* Full width for inputs and textareas */
+      margin-right: 0; /* Remove any right margin */
+      margin-bottom: 15px; /* Increase space between elements */
+    }
+  
+    .form-container input[type="submit"] {
+      width: 100%; /* Full width for submit button */
+    }
+  }
+</style>
+
+<main id="main">
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="https://admin.simplisolve.us/dashboard/">Dashboard</a></li>
+          <li>Reject Data</li>
+        </ol>
+      </div>
+    </section>
+    <section class="inner-page">
+        <div class="container">
+            <section id="portfolio" class="portfolio">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title">
+                        <h2>Reject Data</h2>
+
+                        <!-- Apply Candidate Form -->
+                        <div class="apply_candidate_form contact ">
+                            <div class="form-container ">
+                                <form class="reject-form" method="post" action="{% url 'reject_candidate' candidate.id1 %}">
+                                    {% csrf_token %}
+                                    <p class="iv"><label for="reject_by">Reject By:</label></p>
+                                    <p class="iv"><input type="text" name="reject_by" id="reject_by" required></p>
+                                    <label for="rejection_reason">Reason:</label>
+                                    <textarea style="border-radius:5px;"class='reject_text' type="text" name="rejection_reason" id="myTextarea" oninput="autoResize(this)" rows="4" cols="100" required></textarea>
+                                    <div class="button-wrapp">
+                                        <button type="submit" class="submit-btn">Submit</button>
+                                      </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <script>
+        function autoResize(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+        }
+    </script>
+</main>
+{% endblock %}

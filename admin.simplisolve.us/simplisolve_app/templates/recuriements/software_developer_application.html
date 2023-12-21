@@ -1,0 +1,558 @@
+{%extends 'master.html'%} 
+{%block title %}Software Developer Application Form{%endblock%}
+{%block main%}
+<style>
+ .error {
+      background-color: #ffe4e5;
+      display: inline-block;
+      padding: 3px;
+      margin:8px;
+    
+  }
+  .error:empty
+{
+    display:none;
+      padding:0;
+      margin:0;
+  background-color:transparent;
+}
+
+    .form-container form .file-upload .resume-text #id_resume {
+    max-width: 235px;
+    width: 100%;
+    display: block;
+    margin: 0 auto 0;
+    padding: 0 6px;
+}
+.form-container form .file-upload  {
+    margin: 0 auto 0;
+    display: block;
+    text-align: center;
+}
+.form-container form .file-upload .file-input-label {
+    font-size: 13px;
+    line-height: 20px;
+    max-width: 200px;
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0201011F;
+    border-radius: 4px;
+    margin: 0 auto 28px;
+}
+    .contact .php-email-form select:focus {
+  border-color: #47b2e4;
+}
+.form-container .field-wrapper .phone-number-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-container .field-wrapper .phone-number-group #id_code {
+    width: 65px;
+    padding: 6px;
+    text-align: center;
+}
+.form-container .field-wrapper .phone-number-group #id_phone_number {
+    width: calc(98% - 65px);
+}
+
+.form-container form input, .form-container form select{
+font-family: "Open Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 24px;
+    background-color: #ffffff;
+    border-color: #0201011F;
+    border-width: 1px 1px 1px 1px;
+    border-radius: 4px 4px 4px 4px;
+    width: 100%;
+    height: 44px;
+    padding: 6px 14px;
+    box-sizing: border-box;
+
+}
+.form-container form .button-wrapp .submit-btn {
+    color: #ffffff;
+    background-color: #47B2E4;
+    font-family: "Open Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 24px;
+    border-style: none;
+    border-radius: 50px 50px 50px 50px;
+    padding: 12px 20px 12px 20px;
+    min-width: 180px;
+    margin: 0 auto;
+    display: block;
+}
+</style>
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <ol>
+        <li><a href="https://simplisolve.us">Home</a></li>
+        <li>Software Developer Application Form</li>
+      </ol>
+    </div>
+  </section>
+  <!-- End Breadcrumbs -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Software Developer Application Form</h2>
+       
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch ">
+          {% load static %}
+          <div class="container form-container">
+            <span class="divider"></span>
+            <form id="myform" method="post" enctype="multipart/form-data" class='php-email-form' novalidate>
+              {% csrf_token %}
+             
+              <div class="field-wrapper two-col-wrapp">
+                  <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="{{ form.first_name.id_for_label }}"
+                    >First Name:</label
+                  >
+                  {{ form.first_name }}
+                  <span id="first_nameError" class="error"></span>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="{{ form.last_name.id_for_label }}"
+                    >Last Name:</label
+                  >
+                  {{ form.last_name }}
+                  <span class="error" id="last_nameError"></span>
+                </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                {{ form.email }}
+                <span class="error" id="email_nameError"></span>
+                {% comment %} {% if form.email.errors %}
+                <ul class="errorlist">
+                  {% for error in form.email.errors %}
+                  <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %} {% endcomment %}
+              </div>
+              <div class="field-wrapper">
+                <div class="form-group">
+                  <label for="id_country_code">Select Country:</label>
+                  {{ form.country_code }}
+                </div>
+                <!--<div class="form-group">-->
+                <!--<label for="id_country_name" >Country Name:</label>-->
+                <!--<input type="hidden" name="field_name" value="{{ form.country_name }}"/>-->
+                <!--{{form.country_name}}-->
+                <!--</div> -->
+              </div>
+              <div class="field-wrapper">
+                <div class="form-group">
+                  <label for="{{ form.phone_number.id_for_label }}"
+                    >Phone Number:</label
+                  >
+                  <div class="phone-number-group">
+                    <label for="id_code"></label>
+                    {{form.code}} {{ form.phone_number}}
+                    <span class="error" id="phone_nameError"></span>
+                  </div>
+                  {% if form.phone_number.errors %}
+                  <ul class="errorlist">
+                    {% for error in form.phone_number.errors %}
+                    <li style="color:red;">{{ error }}</li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %} 
+                </div>
+              </div>
+             
+              <div class="mb-3 py-3">
+                <label for="exampleFormControlInput1" class="form-label"> Can you share the link of a Project That You’re Most Proud of?*
+                </label>
+                {{form.project_link}}
+                <span class="error" id="exp_Error"></span>
+               
+              </div>
+             
+      
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"> How much experience do you have in software development?* 
+                </label>
+                {{form.software_dev_experience}}
+                 <span class="error" id="exp1_Error"></span>
+               </div>
+               
+             
+              <div class="my-3">
+                <label for="exampleFormControlInput1" class="form-label"> Do you have experience with SQL?* 
+                </label>
+                {{form.experience_with_sql}}
+                <span class="error" id="exp2_Error"></span>
+               </div>
+               
+            
+      
+      
+      
+              <div class="my-3">
+                <label for="exampleFormControlInput1" class="form-label"> Are you a US Citizen or Permanent Resident?* 
+                </label>
+                {{form.us_citizen_or_permanent_resident}}
+                <span class="error" id="exp3_Error"></span>
+               </div>
+               
+            
+      
+             <div class="mb-3 my-3 py-3">
+              <label for="exampleInputPassword1" class="form-label">What is your salary expectation?*</label>
+              {{form.salary_exceptation}}
+              <span class="error" id="salary_Error"></span>
+            </div>
+            <div class="form-group file-upload">
+                <label for="id_resume" class="file-input-label"
+                  >Upload Resume (PDF only):</label
+                >
+                <span class="resume-text">{{ form.resume }}</span>
+            
+                <span style="margin:2% 25%;"class="error" id="resume_Error"></span>
+                <span
+                style="margin:2% 25%;"
+                  class="error"
+                  id="resume-error"
+                  class="text-danger"
+                ></span>
+              </div>
+              <div class="button-wrapp">
+                 <button type="submit" class="submit-btn">Submit</button> 
+                <!--<input type="submit" value="submit" class="submit-btn">-->
+              </div>
+              
+            </form>
+          </div>
+
+          {% block extra_scripts %}
+          <script src="{% static 'js/candidate_insert1.js' %}"></script>
+          <script>
+    window.onload = function() {
+    const form = document.getElementById("myform");
+    function validateInput(inputElement, errorElement, errorMessage)
+    {
+      if (inputElement.value === "")
+      {
+        errorElement.innerHTML = errorMessage;
+        inputElement.style.boxShadow = '0 0 2px 2px #c00';
+        return false;
+      } 
+      else 
+      {
+        errorElement.innerHTML = "";
+        inputElement.style.boxShadow = "";
+        return true;
+          }
+    }
+    function validateInput_name(inputElement, errorElement, errorMessage)
+    {
+      const name = inputElement.value.trim();
+      const namePattern = /^[A-Za-z]+$/; // Only allows letters (uppercase and lowercase)
+
+      if (inputElement.value === "")
+      {
+        errorElement.innerHTML = errorMessage;
+        inputElement.style.boxShadow = '0 0 2px 2px #c00';
+        return false;
+      }
+      else if(!namePattern.test(name)) 
+      {
+        errorElement.innerHTML = "Please enter a valid name with only letters";
+        inputElement.style.boxShadow = '0 0 2px 2px #c00';
+        return false;
+          } 
+     
+      else 
+      {
+        errorElement.innerHTML = "";
+        inputElement.style.boxShadow = "";
+        return true;
+          }
+    }
+    function validateInput_number(inputElement, errorElement, errorMessage)
+    {
+      const number = inputElement.value.trim();
+      const numberPattern = /^\d+$/; 
+    
+      if (number === "")
+      {
+        errorElement.innerHTML = errorMessage;
+        inputElement.style.boxShadow = '0 0 2px 2px #c00 ';
+        return false;
+      }
+      else if(!numberPattern.test(number)) 
+      {
+        errorElement.innerHTML = "Please enter a valid number with only digits";
+        inputElement.style.boxShadow = '0 0 2px 2px #c00';
+        return false;
+          } 
+     
+      else 
+      {
+        errorElement.innerHTML = "";
+        inputElement.style.boxShadow = "";
+        return true;
+          }
+    }
+    function validateInput_salary(inputElement, errorElement, errorMessage)
+    {
+      const number = inputElement.value.trim();
+      const numberPattern = /^\d+$/; 
+    
+      if (number === "")
+      {
+        errorElement.innerHTML = errorMessage;
+        inputElement.style.boxShadow = '0 0 2px 2px #c00 ';
+        return false;
+      }
+      else if(!numberPattern.test(number)) 
+      {
+        errorElement.innerHTML = "Please enter only digits";
+        inputElement.style.boxShadow = '0 0 2px 2px #c00';
+        return false;
+          } 
+     
+      else 
+      {
+        errorElement.innerHTML = "";
+        inputElement.style.boxShadow = "";
+        return true;
+          }
+    }
+    function validateInput_link(inputElement, errorElement, errorMessage)
+    {
+      
+      const url = inputElement.value.trim();
+      const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+    
+      if (url === "")
+      {
+        errorElement.innerHTML = errorMessage;
+        inputElement.style.boxShadow = '0 0 2px 2px #c00 ';
+        return false;
+      }
+      else if (!urlPattern.test(url)) 
+      {
+          errorElement.innerHTML = "Please enter vaild url";
+        inputElement.style.boxShadow = '0 0 2px 2px #c00';
+        return false;
+        }
+      else 
+      {
+        errorElement.innerHTML = "";
+        inputElement.style.boxShadow = "";
+        return true;
+          }
+    }
+      
+    form.onsubmit = function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const first_name = document.getElementById('id_first_name');
+    const first_nameError = document.getElementById('first_nameError');
+    const last_name = document.getElementById('id_last_name');
+    const last_nameError = document.getElementById('last_nameError');
+    const email_name = document.getElementById('id_email');
+    const email_nameError = document.getElementById('email_nameError');
+    const phone_numberInput = document.getElementById('id_phone_number');
+    const phone_numberError = document.getElementById('phone_nameError');
+    const expInput = document.getElementById('id_project_link');
+    const expError = document.getElementById('exp_Error');
+    const exp1Input = document.getElementById('id_software_dev_experience');
+    const exp1Error = document.getElementById('exp1_Error');
+    const exp2Input = document.getElementById('id_experience_with_sql');
+    const exp2Error = document.getElementById('exp2_Error');
+    const exp3Input = document.getElementById('id_us_citizen_or_permanent_resident');
+    const exp3Error = document.getElementById('exp3_Error');
+    const salaryInput = document.getElementById('id_salary_exceptation');
+    const salaryError = document.getElementById('salary_Error');
+    const resumeInput = document.getElementById('id_resume');
+    const resumeError = document.getElementById('resume_Error');
+   
+    let isValid = true;
+    if (!validateInput_name(first_name, first_nameError, "This field is required")) 
+    {
+      isValid = false;
+    }    
+    if (!validateInput_name(last_name, last_nameError, "This field is required")) 
+    {
+      isValid = false;
+    }
+    if (!validateInput(email_name, email_nameError, "This field is required")) 
+    {
+      isValid = false;
+    }
+    if (!validateInput_number(phone_numberInput, phone_numberError, "This field is required")) 
+    {
+      isValid = false;
+    }
+    if (!validateInput_link(expInput, expError, "This field is required")) 
+    {
+      isValid = false;
+    }
+    if (!validateInput(exp1Input, exp1Error, "This field is required")) 
+    {
+      isValid = false;
+    }
+    if (!validateInput(exp2Input, exp2Error, "This field is required")) 
+    {
+      isValid = false;
+    }
+    if (!validateInput(exp3Input, exp3Error, "This field is required")) 
+    {
+      isValid = false;
+    }
+    if (!validateInput_salary(salaryInput, salaryError, "This field is required")) 
+    {
+      isValid = false;
+    }
+    if (!validateInput(resumeInput, resumeError, "This field is required")) 
+    {
+      isValid = false;
+    }
+    if (isValid) 
+    {
+      form.submit(); // Submit the form if all inputs are valid
+    }
+        };
+
+
+  const first_name = document.getElementById('id_first_name');
+  const first_nameError = document.getElementById('first_nameError');
+  const last_name = document.getElementById('id_last_name');
+  const last_nameError = document.getElementById('last_nameError');
+  const  emailInput = document.getElementById('id_email');
+  const emailError = document.getElementById('email_nameError');
+  const phone_numberInput = document.getElementById('id_phone_number');
+  const phone_numberError = document.getElementById('phone_nameError');
+  const expInput = document.getElementById('id_project_link');
+  const expError = document.getElementById('exp_Error');
+  const exp1Input = document.getElementById('id_software_dev_experience');
+  const exp1Error = document.getElementById('exp1_Error');
+  const exp2Input = document.getElementById('id_experience_with_sql');
+  const exp2Error = document.getElementById('exp2_Error');
+  const exp3Input = document.getElementById('id_us_citizen_or_permanent_resident');
+  const exp3Error = document.getElementById('exp3_Error');
+  const salaryInput = document.getElementById('id_salary_exceptation');
+  const salaryError = document.getElementById('salary_Error');
+  const resumeInput = document.getElementById('id_resume');
+  const resumeError = document.getElementById('resume_Error');
+  first_name.onblur = function()
+   {
+      validateInput_name(first_name, first_nameError, "This field is required");
+    };
+  last_name.onblur = function()
+   {
+      validateInput_name(last_name, last_nameError, "This field is required");
+    };
+  emailInput.onblur = function()
+   {
+     
+    
+      
+        const email = emailInput.value;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        const allowedExtensions = ["com", "net", "org","us","edu","gov","mil","int","uk","ca","au","de","fr","jp","cn","in"]; 
+    
+        if (email === "") 
+        {
+          emailError.textContent = "Email is required.";
+          emailInput.style.boxShadow = '0 0 2px 2px #c00';
+         
+        }
+         else if (!email.match(emailPattern)) 
+         {
+          emailError.textContent = "Please enter a valid email address.";
+          emailInput.style.boxShadow = '0 0 2px 2px #c00';
+        
+        } 
+        else
+         {
+          // Check email extension
+          const emailParts = email.split(".");
+          const extension = emailParts[emailParts.length - 1];
+          if (!allowedExtensions.includes(extension))
+           {
+            emailError.textContent = "Invalid email extension.";
+            emailInput.style.boxShadow = '0 0 2px 2px #c00';
+            
+          } 
+          else 
+          {
+            emailError.textContent = "";
+            emailInput.style.boxShadow = '';
+          }
+        }
+      }
+    phone_numberInput.onblur = function()
+    {
+      validateInput_number(phone_numberInput, phone_numberError, "This field is required");
+    };
+    expInput.onblur = function()
+    {
+      validateInput_link(expInput, expError, "This field is required");
+    };
+    exp1Input.onblur = function()
+    {
+      validateInput(exp1Input, exp1Error, "This field is required");
+    };
+    exp2Input.onblur = function()
+    {
+      validateInput(exp2Input, exp2Error, "This field is required");
+    };
+    exp3Input.onblur = function()
+    {
+      validateInput(exp3Input, exp3Error, "This field is required");
+    };
+    salaryInput.onblur = function()
+    {
+      validateInput_salary(salaryInput, salaryError, "This field is required");
+    };
+    resumeInput.onblur = function()
+    {
+      validateInput(resumeInput, resumeError, "This field is required");
+    };
+  };
+      
+     
+  </script> 
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+</main>
+
+  
+{%endblock%}
+
+ 
+  

@@ -1,0 +1,41 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+.reject-form {
+display: none;
+margin-top: 10px;
+}
+
+.reject-form.show {
+display: block;
+}
+#helo
+{
+    border: 1px solid blue;
+    border-radius: 8px;
+    background-color:yellow;
+    color:black;
+    width: fit-content;
+    padding: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}

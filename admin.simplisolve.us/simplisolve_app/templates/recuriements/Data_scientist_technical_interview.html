@@ -1,0 +1,574 @@
+{%extends 'master_login.html'%}
+{%block title%}Topic Selection{%endblock%}
+{% load static %}
+{% block logout%}
+<li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+{%endblock%}
+
+
+{%block main%}
+<style>
+  .questions-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+
+  .topicSelect {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+
+    color: #333;
+
+  }
+
+
+
+  .button-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-top: 50px;
+
+  }
+
+
+
+  .button {
+
+    padding: 10px 20px;
+
+    font-size: 18px;
+
+    margin: 10px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: #007BFF;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+  }
+
+
+
+  .button:hover {
+
+    background-color: #0056b3;
+
+  }
+
+  h1 {
+
+    color: #333;
+
+  }
+
+
+
+  form {
+
+    background-color: #fff;
+
+    padding: 20px;
+
+    border-radius: 5px;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+  }
+
+
+
+  label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+  }
+
+
+
+  input[type="date"] {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+  }
+
+
+
+  button[type="submit"] {
+
+    background-color: #007BFF;
+
+    color: #fff;
+
+    border: none;
+
+    padding: 10px 20px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+  }
+
+
+
+  button[type="submit"]:hover {
+
+    background-color: #0056b3;
+
+  }
+
+  .error {
+    background-color: #ffe4e5;
+    display: inline-block;
+    padding: 3px;
+    margin: 8px;
+
+  }
+
+  .error:empty {
+    display: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+  }
+
+  .form-container form .file-upload .resume-text #id_resume {
+    max-width: 235px;
+    width: 100%;
+    display: block;
+    margin: 0 auto 0;
+    padding: 0 6px;
+  }
+
+  .form-container form .file-upload {
+    margin: 0 auto 0;
+    display: block;
+    text-align: center;
+  }
+
+  .form-container form .file-upload .file-input-label {
+    font-size: 13px;
+    line-height: 20px;
+    max-width: 200px;
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0201011F;
+    border-radius: 4px;
+    margin: 0 auto 28px;
+  }
+
+  .contact .php-email-form select:focus {
+    border-color: #47b2e4;
+  }
+
+  .form-container .field-wrapper .phone-number-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .form-container .field-wrapper .phone-number-group #id_cobade {
+    width: 65px;
+    padding: 6px;
+    text-align: center;
+  }
+
+  .form-container .field-wrapper .phone-number-group #id_phone_number {
+    width: calc(98% - 65px);
+  }
+
+  .form-container form input,
+  .form-container form select {
+    font-family: "Open Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 24px;
+
+    border-color: #0201011F;
+    border-width: 1px 1px 1px 1px;
+    border-radius: 4px 4px 4px 4px;
+    width: 100%;
+    height: 44px;
+    padding: 6px 14px;
+    box-sizing: border-box;
+
+  }
+
+  .form-container form .button-wrapp .submit-btn {
+    color: #ffffff;
+    background-color: #47B2E4;
+    font-family: "Open Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 24px;
+    border-style: none;
+    border-radius: 50px 50px 50px 50px;
+    padding: 12px 20px 12px 20px;
+    min-width: 180px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .apply_candidate_form {
+
+    border-top: 3px solid #47b2e4;
+    border-bottom: 3px solid #47b2e4;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  #rad {
+    border: 2px solid red;
+    background: red;
+    width: 100px;
+  }
+
+  .apply_candidate_form {
+    border-top: 3px solid #47b2e4;
+    border-bottom: 3px solid #47b2e4;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  @media screen and (max-width: 600px) {
+
+    /* Mobile-specific styles here */
+    table thead {
+      display: none;
+    }
+
+    table td {
+      display: flex;
+      flex-direction: column;
+      /* Display table cells vertically on mobile */
+    }
+
+    table td::before {
+      content: attr(label);
+      font-weight: bold;
+      width: 120px;
+      min-width: 120px;
+    }
+
+    input[type='radio'] {
+      margin-left: 30px;
+      transform: scale(2);
+    }
+
+    .form-container form .button-wrapp .submit-btn {
+      margin: 0 auto;
+      margin-top: 7%;
+    }
+
+    .candidate-details-container {
+      padding: 10px;
+      /* Adjust padding for better spacing on mobile */
+    }
+
+    /* Add any other mobile-specific styles here */
+  }
+
+
+  input[type='radio'] {
+    margin-left: 30px;
+    transform: scale(2);
+  }
+
+  .form-container form .button-wrapp .submit-btn {
+    color: #ffffff;
+    background-color: #47B2E4;
+    font-family: "Open Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 24px;
+    border-style: none;
+    border-radius: 50px 50px 50px 50px;
+    padding: 12px 20px 12px 20px;
+    min-width: 180px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 7%;
+  }
+
+  table {
+
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  .candidate-details-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .details-label {
+    font-weight: bold;
+  }
+
+  .label_review_salary {
+    margin: 2%;
+  }
+
+  .questions-list li {
+    margin-bottom: 10px;
+  }
+  .messages {
+  list-style-type: none;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.messages li {
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+</style>
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <ol>
+        <li><a href="https://admin.simplisolve.us/dashboard/">Dashboard</a></li>
+        <li>Technical Interview</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Interview Topics and Questions with Marks</h2>
+      </div>
+      <div class="row d-flex justify-content-center ">
+        <div class="section-title">
+          <h3>Position:{{candidate.post}}</h3>
+        </div>
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+          <div class="container form-container apply_candidate_form">
+            
+
+            <div class="button-container">
+              {% if messages %}
+              <ul id ="messageid"class="messages">
+                {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+            
+              <!-- <span style="color:green; padding :5px; margin:15px;">{{message}}</span> -->
+
+              <!-- Topic Selection Dropdown -->
+              <form id="mainform" method="post" action="{% url 'Save_score_data_scientist_technical' candidate.id1 %}">
+                {% csrf_token %}
+                
+                <input type="hidden" name="interview_id" value="{{ candidate.id1 }}">
+          
+                <label for="topicSelect">
+                  <h3>Select a Topic:</h3>
+                </label>
+                <div id="questionsContainer" style="display: none;"></div>
+                <select id="topicSelect" class="topicSelect" onchange="showQuestions()">
+                  
+                  <option value="0">Select a Topic</option>
+                  <option value="deepak" {% if 'deepak' in existing_topics %} disabled {% endif %}>Topic 1</option>
+                  <option value="2" {% if '2' in existing_topics %} disabled {% endif %}>Topic 2</option>
+                  <option value="3" {% if '3' in existing_topics %} disabled {% endif %}>Topic 3</option>
+                  <option value="4" {% if '4' in existing_topics %} disabled {% endif %}>Topic 4</option>         
+                  <option value="5" {% if '5' in existing_topics %} disabled {% endif %}>Topic 5</option>
+
+                  <!-- Add more options for different topics -->  
+                </select>
+
+                <!-- Display Questions and Marks -->
+
+                <h3>Questions For Selected Topic</h3>
+                <ul id="questionsList" class="questions-list"></ul>
+                <input type="hidden" id="selectedTopic" name="selectedTopic" value="">
+                
+                <ul id="marksList"></ul>
+                <div class="button-wrapp" style="display: none;" id="savescorebutton">
+                  <button type="submit" id="submit-btn" class="submit-btn">Save Score</button> 
+                 <!--<input type="submit" value="submit" class="submit-btn">-->
+               </div>
+              
+              </form>
+              <div id="completedInterview" style="display: none;">
+                <h2>Technical Interview Completed</h2>
+                <h3 style="text-align: center;">&#x1F600</h3>
+              </div>
+            </div>
+
+            <script>
+               function checkTopicsDisabled() {
+          var topicSelect = document.getElementById("topicSelect");
+          var options = topicSelect.getElementsByTagName("option");
+          var allDisabled = true;
+
+          for (var i = 0; i < options.length; i++) {
+            if (!options[i].disabled && options[i].value !== "0") {
+              allDisabled = false;
+              break;
+            }
+          }
+
+          if (allDisabled) {
+            document.getElementById("completedInterview").style.display = "block";
+            // Hide the form or any other elements related to the topic selection
+            document.getElementById("questionsContainer").style.display = "none";
+            document.getElementById("mainform").style.display = "none";
+            document.getElementById("savescorebutton").style.display = "none";
+            document.getElementById("messageid").style.display = "none";
+
+          }
+        }
+
+        window.onload = function () {
+          checkTopicsDisabled();
+        };
+              function showQuestions() {
+                var topicSelect = document.getElementById("topicSelect");
+                var selectedTopic = topicSelect.options[topicSelect.selectedIndex].value;
+                var questionsContainer = document.getElementById("questionsContainer");
+                var questionsList = document.getElementById("questionsList");
+                var marksList = document.getElementById("marksList");
+                var marksForm = document.getElementById("marksForm");
+                var selectedTopicInput = document.getElementById("selectedTopic");
+                var savescorebutton=document.getElementById("savescorebutton");
+
+                // Clear previous questions and marks
+                questionsList.innerHTML = "";
+                marksList.innerHTML = "";
+                selectedTopicInput.value = "";
+
+                if (selectedTopic === "0") {
+                  questionsContainer.style.display = "none";
+                  savescorebutton.style.display = "none";
+            
+                } else {
+                  // Simulate fetching questions from a server based on the selected topic
+                  var questionsData = {
+                    deepak:["Question 1. What is your experience with Django models?", "Question 2 for Topic 1", "Question 3 for Topic 1", "Question 4 for Topic 1"],
+                    2:["Question 1 for Topic 2", "Question 2 for Topic 2", "Question 3 for Topic 2", "Question 4 for Topic 2"],
+                    3:["Question 1 for Topic 3", "Question 2 for Topic 3", "Question 3 for Topic 3", "Question 4 for Topic 3"],
+                    4:["Question 1 for Topic 4", "Question 2 for Topic 4", "Question 3 for Topic 4", "Question 4 for Topic 4"],
+                    5:["Question 1 for Topic 5", "Question 2 for Topic 5", "Question 3 for Topic 5", "Question 4 for Topic 5"],
+
+                    // Add more question data for different topics
+                  };
+
+                  // Display questions for the selected topic
+                  // Existing code...
+
+                  // Display questions for the selected topic
+                  questionsData[selectedTopic].forEach(function (question, index) {
+                    var listItem = document.createElement("li");
+
+                    listItem.textContent = question;
+
+                    // Create a div to contain both the question and the mark input
+                    var questionDiv = document.createElement("div");
+                    questionDiv.classList.add("question-item");
+
+                    // Append the question to the div
+                    questionDiv.appendChild(listItem);
+
+                    // Add input fields for marks
+                    var markInput = document.createElement("input");
+                    markInput.type = "number";
+                    markInput.name = question;
+                    markInput.placeholder = "Mark for Question " + (index + 1);
+                    var question1 = question.replace(/<\/?[^>]+(>|$)/g, "").replace(/\s/g, '_');
+                    markInput.classList.add(question1);
+
+                    // Append the mark input to the div
+                    questionDiv.appendChild(markInput);
+
+                    // Append the div containing the question and mark input to the list
+                    questionsList.appendChild(questionDiv);
+                  });
+
+                  // Existing code...
+
+
+                  selectedTopicInput.value = selectedTopic;
+                  questionsContainer.style.display = "block";
+                  savescorebutton.style.display = "block";
+                }
+              }
+              
+
+            </script>
+           
+            </body>
+
+            </html>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+</main>
+
+{%endblock%}

@@ -1,0 +1,62 @@
+<!-- show_scores.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scores</title>
+    <style>
+        body {
+            font-size: 18px; /* Adjust the base font size */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 12px; /* Adjust the cell padding */
+            font-size: 18px; /* Adjust the cell font size */
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Scores for Topic ID: {{ topic_id }}</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Topic</th>
+            <th>Question 1</th>
+            <th>Marks 1</th>
+            <th>Question 2</th>
+            <th>Marks 2</th>
+            <th>Question 3</th>
+            <th>Marks 3</th>
+            <th>Question 4</th>
+            <th>Marks 4</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for score in scores %}
+            <tr>
+                <td>{{ score.topic }}</td>
+                <td>{{ score.question1 }}</td>
+                <td>{{ score.marks1 }}</td>
+                <td>{{ score.question2 }}</td>
+                <td>{{ score.marks2 }}</td>
+                <td>{{ score.question3 }}</td>
+                <td>{{ score.marks3 }}</td>
+                <td>{{ score.question4 }}</td>
+                <td>{{ score.marks4 }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

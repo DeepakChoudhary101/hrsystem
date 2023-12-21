@@ -1,0 +1,355 @@
+{% extends 'master_login.html' %}
+
+{% block title %}Call Confirmation{% endblock %}
+
+{% load static %}
+
+{% block logout %}
+
+  <li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+
+{% endblock %}
+
+
+
+{% block main %}
+
+<style>
+
+  #rad {
+
+    border: 2px solid red;
+
+    background: red;
+
+    width: 100px;
+
+  }
+
+
+
+  .apply_candidate_form {
+
+    border-top: 3px solid #47b2e4;
+
+    border-bottom: 3px solid #47b2e4;
+
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+
+  }
+
+
+
+  @media screen and (max-width: 600px) {
+
+    table thead {
+
+      display: none;
+
+    }
+
+
+
+    table td {
+
+      display: flex;
+
+      flex-direction: column;
+
+    }
+
+
+
+    table td::before {
+
+      content: attr(label);
+
+      font-weight: bold;
+
+      width: 120px;
+
+      min-width: 120px;
+
+    }
+
+
+
+    input[type='radio'] {
+
+      margin-left: 30px;
+
+      transform: scale(2);
+
+    }
+
+
+
+    .form-container form .button-wrapp .submit-btn {
+
+      margin: 0 auto;
+
+      margin-top: 7%;
+
+    }
+
+
+
+    .candidate-details-container {
+
+      padding: 10px;
+
+    }
+
+  }
+
+
+
+  input[type='radio'] {
+
+    margin-left: 30px;
+
+    transform: scale(2);
+
+  }
+
+
+
+  .form-container form .button-wrapp .submit-btn {
+
+    color: #ffffff;
+
+    background-color: #47b2e4;
+
+    font-family: "Open Sans", Sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    text-transform: none;
+
+    font-style: normal;
+
+    text-decoration: none;
+
+    line-height: 24px;
+
+    border-style: none;
+
+    border-radius: 50px 50px 50px 50px;
+
+    padding: 12px 20px 12px 20px;
+
+    min-width: 180px;
+
+    margin: 0 auto;
+
+    display: block;
+
+    margin-top: 7%;
+
+  }
+
+
+
+  table {
+
+    border-collapse: collapse;
+
+    width: 100%;
+
+    margin-top: 20px;
+
+  }
+
+
+
+  th, td {
+
+    text-align: left;
+
+    padding: 12px;
+
+    border-bottom: 1px solid #ddd;
+
+  }
+
+
+
+  .candidate-details-container {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding: 20px;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  }
+
+
+
+  .details-label {
+
+    font-weight: bold;
+
+  }
+
+</style>
+
+
+
+<main id="main">
+
+  <section id="breadcrumbs" class="breadcrumbs">
+
+    <div class="container">
+
+      <ol>
+
+        <li><a href="https://admin.simplisolve.us/dashboard/">Dashboard</a></li>
+
+        <li>Call Confirmation</li>
+        
+      </ol>
+
+    </div>
+
+  </section>
+
+
+
+  <section id="contact" class="contact">
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+
+        <h2>Call Confirmation</h2>
+        <h4>Position :{{post}}{{candidate.post}}</h4>
+        
+
+
+      </div>
+
+
+
+      <div class="row d-flex justify-content-center">
+
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+
+          <div class="container form-container apply_candidate_form">
+
+            <span class="divider"></span>
+
+            
+
+            <form method="post" action="{% url 'remove_candidate_data' candidate.id1 %}">
+
+              {% csrf_token %}
+
+              <div class="candidate-details-container">
+
+                <table>
+
+                  <tr>
+
+                    <td class="details-label">Name:</td>
+
+                    <td>{{ candidate.first_name }} {{ candidate.last_name }}</td>
+                    <input type="hidden" name="post_data" value="{{post}}{{candidate.post}}">
+                
+                  
+
+                  </tr>
+
+
+                  <tr>
+
+                    <td class="details-label">Phone Number:</td>
+
+                    <td>{{ candidate.phone_number }}</td>
+
+                  </tr>
+
+
+
+                  <tr>
+
+                    <td class="details-label">Email:</td>
+
+                    <td>{{ candidate.email }}</td>
+
+                  </tr>
+
+
+
+                  <tr>
+
+                    <td class="details-label">Resume:</td>
+
+                    <td><a href="{{ candidate.resume.url }}" target="_blank">Download Resume</a></td>
+
+                  </tr>
+
+
+
+                  <tr>
+
+                    <td class="details-label">Call Take:</td>
+
+                    <td>
+
+                      <input class="radio_in" type="radio" id="call_yes" name="call_take" value="yes">
+
+                      <label for="call_yes">Yes</label>
+
+                      <input class="radio_in" type="radio" id="call_no" name="call_take" value="no">
+
+                      <label for="call_no">No</label>
+
+                    </td>
+
+                  </tr>
+
+
+
+                  <tr>
+
+                    <td colspan="2">
+
+                      <div class="button-wrapp">
+
+                        <button type="submit" class="submit-btn">Submit</button>
+
+                      </div>
+
+                    </td>
+
+                  </tr>
+
+                </table>
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+{% endblock %}
+

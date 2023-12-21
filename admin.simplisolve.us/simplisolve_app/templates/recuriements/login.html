@@ -1,0 +1,108 @@
+{%extends 'master_login.html'%}
+{% block title %}HR Login{% endblock%}
+
+{%block logout%}
+<li><a class="getstarted scrollto" href="https://admin.simplisolve.us/Contact_us">Contact Us</a></li>
+{%endblock%}
+{% block main %}
+<style>
+  
+   .color{
+    background: #47b2e4;
+  border: 0;
+  padding: 12px 34px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+
+  }
+  .color:hover{
+    background: #209dd8;
+  }
+ 
+
+.input_box:hover {
+  border-color: #47b2e4;
+}
+.input_box{
+box-shadow: none;
+    font-size: 14px;
+    border-radius: 4px;}
+
+.input_box{
+font-family: "Open Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 24px;
+    background-color: #ffffff;
+    border-color: #0201011F;
+    border-width: 1px 1px 1px 1px;
+    border-radius: 4px 4px 4px 4px;
+    width: 50%;
+    height: 44px;
+    padding: 6px 14px;
+    box-sizing: border-box;
+}
+  
+  
+</style>
+
+<main id="main">
+  
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="https://simplisolve.us">Home</a></li>
+          <li>HR LOGIN</li>
+        </ol>
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+    <section class="inner-page">
+      <div class="container">
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>HR LOGIN</h2>
+
+          <section id="contact" class="contact d-flex justify-content-center">
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch contact ">
+                 <div class="container form-container"> 
+                <form  method="post" role="form" class="php-email-form">
+                    {% csrf_token %}
+                    
+                <div class="field-wrapper two-col-wrapp">
+                    
+                  <div class="form-group ">
+                    <label for="username">Username</label>
+                    <input class="input_box" type="text" id="username" name="username" placeholder="Enter username" required>
+                   </div>
+                   
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="input_box" type="password" id="password" name="password"placeholder="Enter password" required>
+                  </div>
+                </div>
+                  
+                  
+                <div class="text-center"><button type="submit" class="login-button">Login</button>
+                </div>
+                </form>
+             </div> 
+        </div>
+        </section>
+          
+        </div>
+      </div>
+    </section><!-- End Portfolio Section -->
+      </div>
+    </section>
+    <!-- ======= Contact Section ======= -->
+   
+</main>
+{% endblock %}

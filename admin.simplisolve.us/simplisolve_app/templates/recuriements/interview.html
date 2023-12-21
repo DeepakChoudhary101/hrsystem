@@ -1,0 +1,501 @@
+{%extends 'master_login.html'%}
+
+{%block title%}PENDING INTERVIEW DATA{%endblock%}
+
+{% load static %}
+
+{% block logout%}
+
+<li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+
+{%endblock%}
+
+{%block main%}
+
+<style>
+
+.accept-form {
+
+    display: none;
+
+    margin-top: 10px;
+
+}
+
+
+
+.accept-form.show {
+
+    display: block;
+
+}
+
+.accept-link,
+
+.reject-link,
+
+.show-dates-link {
+
+    text-decoration: none;
+
+    color: #007BFF;
+
+    /* Link color */
+
+    margin-right: 10px;
+
+}
+
+
+
+.accept-link:hover,
+
+.reject-link:hover,
+
+.show-dates-link:hover {
+
+    text-decoration: underline;
+
+    /* Underline on hover */
+
+}
+
+  table {
+
+    border-collapse: collapse;
+
+    width: 100%;
+
+    margin-top:20px;
+
+    margin-bottom:20px;
+
+    overflow-x: auto;
+
+  }
+
+
+
+  td ,th{
+
+    text-align: left;
+
+    padding: 5px;
+
+  }
+
+  td:hover
+
+  {
+
+  color:#47b2e4;
+
+  
+
+  }
+
+  tr {
+
+    transition: background-color 0.3s;
+
+    border-bottom: 1px solid black;
+
+  }
+
+   
+
+  }td a.link_hover {
+
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    text-decoration: none;
+
+    background-color: #47b2e4;
+
+    color: white;
+
+    border-radius: 3px;
+
+    transition: background-color 0.3s;
+
+  }
+
+
+
+  td a.link_hover:hover {
+
+    background-color: #356b8c;
+
+  }
+
+
+
+  th {
+
+    
+
+    background-color: #47b2e4;
+
+    color: white;
+
+    padding: 12px;
+
+    text-align: left;
+
+   
+
+  }
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  .reject-form {
+
+    display: none;
+
+    margin-top: 10px;
+
+  }
+
+
+
+  .reject-form input[type="text"]
+
+   .reject-form textarea{
+
+   
+
+    width: auto;
+
+    padding: 8px;
+
+    margin-bottom: 10px;
+
+    box-sizing: border-box;
+
+
+
+  }
+
+  
+
+
+
+  .reject-form input[type="submit"] 
+
+  {
+
+    background-color:#47b2e4;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+  }
+
+
+
+  .reject-form.show {
+
+    display: block;
+
+  }
+
+
+
+  .apply_candidate_form {
+
+    border-top: 3px solid #47b2e4;
+
+    border-bottom: 3px solid #47b2e4;
+
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+
+    margin-top: 20px;
+
+    width:100%;
+
+    
+
+  }
+
+  #helo {
+
+    border: 1px solid blue;
+
+    border-radius: 8px;
+
+    background-color: yellow;
+
+    color: black;
+
+    width: fit-content;
+
+    padding: 5px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+  }
+
+
+
+  @media screen and (max-width: 600px) {
+
+    table thead {
+
+      display: none;
+
+    }
+
+
+
+    table td {
+
+        display: block;
+
+        text-align: left;
+
+      
+
+    }
+
+
+
+    table td::before {
+
+      content: attr(label);
+
+      font-weight: bold;
+
+      width: 100%;
+
+      min-width: 100%;
+
+     
+
+    }
+
+  }
+
+
+
+ 
+
+
+
+  
+
+</style>
+
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+
+    <section id="breadcrumbs" class="breadcrumbs">
+
+      <div class="container">
+
+        <ol>
+
+          <li><a href="https://admin.simplisolve.us/dashboard/">Dashboard</a></li>
+
+          <li>PENDING INTERVIEW DATA</li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+
+      <div class="container">
+
+    <!-- ======= Portfolio Section ======= -->
+
+    <section id="portfolio" class="portfolio">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+
+          <h2>PENDING INTERVIEW DATA</h2>
+
+
+
+          <section id="contact" class="contact d-flex justify-content-center c">
+
+            <!-- {% comment %} <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch container  "> {% endcomment %} -->
+
+                <div class="apply_candidate_form">
+
+            
+
+            <!-- {% comment %} <form class='php-email-form'> {% endcomment %} -->
+
+                    <table>
+
+
+
+                        <thead>
+
+            
+
+                            <tr>
+
+            
+
+                                <th>Name</th>
+
+            
+
+                                <th>Phone Number</th>
+
+            
+
+                                <th>Email</th>
+
+            
+
+                            
+
+            
+
+                                <th>Resume</th>
+                                <th>Position</th>
+
+                                 <th>view more</th>
+
+            
+
+                               
+
+                            </tr>
+
+            
+
+                        </thead>
+
+            
+
+                        <tbody>
+
+            
+
+                            {% for destination_candidate in interview_candidates %}
+
+            
+
+                            <tr>
+
+            
+
+                                <td>{{destination_candidate.first_name}}
+
+            
+
+                                    {{destination_candidate.last_name}}</td>
+
+            
+
+                                <td>{{destination_candidate.code}}
+
+            
+
+                                    {{destination_candidate.phone_number}}</td>
+
+            
+
+                                <td>{{destination_candidate.email}}</td>
+
+            
+
+                
+
+            
+
+                                <td><a href="{{ destination_candidate.resume.url }}"
+
+            
+
+                                        target="_blank">Download Resume</a></td>
+                                        <td>{{destination_candidate.post}}</td>
+
+                                 <td><a  href="{% url 'interview_process_view' destination_candidate.id1 %}">view more</a></td>
+
+            
+
+                                
+
+                            </tr>
+
+            
+
+                            {% endfor %}
+
+            
+
+                          
+
+            
+
+                        </tbody>
+
+            
+
+                    </table>
+
+</div>
+
+</section>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+</div>
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+<script src="{% static 'js/pending.js' %}"></script>
+
+
+
+<script src="{% static 'js/interview1.js' %}"></script>
+
+{%endblock%}

@@ -1,0 +1,775 @@
+{%extends 'master_login.html'%}
+
+{%block title%}Apply Candidate{%endblock%}
+
+{% load static %}
+
+{% block logout%}
+
+<li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+
+{%endblock%}
+
+{% load static%}
+
+
+
+{%block main%}
+
+<!--<style>-->
+
+<!--    table {-->
+
+
+
+<!--    border-collapse: collapse;-->
+
+
+
+<!--    width: 100%;-->
+
+
+
+<!--    border: 1px solid #ddd;-->
+
+
+
+<!--}-->
+
+
+
+
+
+
+
+<!--th, td {-->
+
+
+
+<!--    text-align: left;-->
+
+
+
+<!--    padding: 8px;-->
+
+
+
+<!--}-->
+
+
+
+
+
+
+
+<!--th {-->
+
+
+
+<!--    background-color: #f2f2f2;-->
+
+
+
+<!--}-->
+
+
+
+
+
+
+
+<!--tr:nth-child(even) {-->
+
+
+
+<!--    background-color: #f2f2f2;-->
+
+
+
+<!--}-->
+
+
+
+
+
+
+
+<!--tr:hover {-->
+
+
+
+<!--    background-color: #ddd;-->
+
+
+
+<!--}-->
+
+
+
+<!--#helo-->
+
+
+
+<!--{-->
+
+
+
+<!--    border: 1px solid blue;-->
+
+
+
+<!--    border-radius: 8px;-->
+
+
+
+<!--    background-color:yellow;-->
+
+
+
+<!--    color:black;-->
+
+
+
+<!--    width: fit-content;-->
+
+
+
+<!--    padding: 5px;-->
+
+
+
+<!--    text-decoration: none;-->
+
+
+
+<!--    font-weight: bold;-->
+
+
+
+<!--}-->
+
+
+
+
+
+
+
+/* Hide the form by default */
+
+
+
+<!--.reject-form {-->
+
+
+
+<!--display: none;-->
+
+
+
+<!--margin-top: 10px;-->
+
+
+
+<!--}-->
+
+
+
+
+
+
+
+/* Style the text input and submit button */
+
+
+
+<!--.reject-form input[type="text"] {-->
+
+
+
+<!--width: 100%;-->
+
+
+
+<!--padding: 8px;-->
+
+
+
+<!--border: 1px solid #ccc;-->
+
+
+
+<!--border-radius: 5px;-->
+
+
+
+<!--margin-right: 10px;-->
+
+
+
+<!--}-->
+
+
+
+<!--.reject-form input[type="submit"] {-->
+
+
+
+<!--background-color: red;-->
+
+
+
+<!--color: white;-->
+
+
+
+<!--border: none;-->
+
+
+
+<!--padding: 6px 12px;-->
+
+
+
+<!--border-radius: 5px;-->
+
+
+
+<!--cursor: pointer;-->
+
+
+
+<!--}-->
+
+
+
+<!--.reject-form {-->
+
+
+
+<!--display: none;-->
+
+
+
+<!--margin-top: 10px;-->
+
+
+
+<!--}-->
+
+
+
+
+
+
+
+<!--.reject-form.show {-->
+
+
+
+<!--display: block;-->
+
+
+
+<!--}-->
+
+<!--.apply_candidate_form-->
+
+<!--{-->
+
+
+
+<!--  border-top: 3px solid #47b2e4;-->
+
+<!--  border-bottom: 3px solid #47b2e4;-->
+
+ 
+
+<!--  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);-->
+
+<!--}-->
+
+<!--@media screen and (max-width: 600px) {-->
+
+<!--  table thead {-->
+
+<!--    display: none;-->
+
+<!--  }-->
+
+<!--  table td {-->
+
+<!--    display: flex;-->
+
+<!--  }-->
+
+  
+
+<!--  table td::before {-->
+
+<!--    content: attr(label);-->
+
+<!--    font-weight: bold;-->
+
+<!--    width: 120px;-->
+
+<!--    min-width: 120px;-->
+
+<!--  }-->
+
+<!--}-->
+
+<!-- table {-->
+
+<!--            border-collapse: collapse;-->
+
+<!--            text-align: center;-->
+
+<!--        }-->
+
+ 
+
+<!--        tr {-->
+
+<!--            border-bottom: 1px solid black;-->
+
+<!--        }-->
+
+
+
+<!--</style>-->
+
+<style>
+
+  table {
+
+    border-collapse: collapse;
+
+    width: 100%;
+
+    border: 1px solid #ddd;
+
+  }
+
+
+
+  th, td {
+
+    text-align: left;
+
+    padding: 8px;
+
+  }
+
+
+
+  th {
+
+    background-color: #f2f2f2;
+
+  }
+
+
+
+  
+
+
+
+  tr:hover {
+
+    background-color: white;
+
+  }
+
+
+
+  #helo {
+
+    border: 1px solid blue;
+
+    border-radius: 8px;
+
+    background-color: yellow;
+
+    color: black;
+
+    width: fit-content;
+
+    padding: 5px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+  }
+
+
+
+  .reject-form {
+
+    display: none;
+
+    margin-top: 10px;
+
+  }
+
+
+
+  .reject-form input[type="text"] {
+
+    width: auto;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+
+
+  }
+
+
+
+  .reject-form input[type="submit"] {
+
+    background-color: red;
+
+    color: white;
+
+    border: none;
+
+    padding: 3px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+  }
+
+
+
+  .reject-form.show {
+
+    display: block;
+
+  }
+
+
+
+  .apply_candidate_form {
+
+    border-top: 3px solid #47b2e4;
+
+    border-bottom: 3px solid #47b2e4;
+
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+
+    margin-top: 20px;
+
+  }
+
+
+
+  @media screen and (max-width: 600px) {
+
+    table thead {
+
+      display: none;
+
+    }
+
+
+
+    table td {
+
+      display: flex;
+
+    }
+
+
+
+    table td::before {
+
+      content: attr(label);
+
+      font-weight: bold;
+
+      width: 120px;
+
+      min-width: 120px;
+
+    }
+
+  }
+
+
+
+  table {
+
+    border-collapse: collapse;
+
+    text-align: center;
+
+  }
+
+
+
+  tr {
+
+    border-bottom: 1px solid black;
+
+  }
+
+</style>
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+
+    <section id="breadcrumbs" class="breadcrumbs">
+
+      <div class="container">
+
+        <ol>
+
+          <li><a href="https://admin.simplisolve.us/dashboard/">Dashboard</a></li>
+
+          <li>HR LOGIN</li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+
+        <div class="container">
+
+            <section id="portfolio" class="portfolio">
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+
+                <h2>Apply Candidates Data</h2>
+
+
+
+          <section id="contact" class="contact d-flex justify-content-center">
+
+            <!-- {% comment %} <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch container  "> {% endcomment %} -->
+
+                <div class="container form-container apply_candidate_form">
+
+            
+
+            
+
+                <table>
+
+
+
+                <thead>
+
+
+
+        <tr>
+
+
+
+            <th>Name</th>
+
+
+
+            <th>Phone Number</th>
+
+
+
+            <th>Email</th>
+
+
+
+            <!-- {% comment %} <th>Country Name</th> {% endcomment %} -->
+
+
+
+            <th>Application Submission Date</th>
+
+
+
+            <th>Resume</th>
+
+
+
+
+
+
+
+            <th>Accept</th>
+
+
+
+            <th>Reject</th>
+
+
+
+        </tr>
+
+
+
+    </thead>
+
+
+
+    <tbody>
+
+
+
+        {% for candidate in candidates %}
+
+
+
+            <tr>
+
+
+
+            
+
+
+
+                <td>{{ candidate.first_name}} {{candidate.last_name}}</td>
+
+
+
+                <td> {{ candidate.phone_number }}</td>
+
+
+
+                <td>{{ candidate.email }}</td>
+
+
+
+                <!-- {% comment %} <td>{{ candidate.country_name }}</td> {% endcomment %} -->
+
+
+
+                <td>{{candidate.datetime}}</td>
+
+
+
+                <td><a href="{{ candidate.resume.url }}" target="_blank">Download Resume</a></td>
+
+
+
+                <td><a href="{% url 'update_candidate' candidate.id1 %}">Accept</a></td>
+
+                <td><a href="{% url 'rejectdata' candidate.id1 %}">Reject</a></td>
+
+
+
+               
+
+
+
+                <!--<td>-->
+
+                <!--     <a href="#" class="reject-link">Reject</a>-->
+
+
+
+                <!--<form class="reject-form" method="post" action="{% url 'reject_candidate' candidate.id1 %}">-->
+
+
+
+                <!--    {% csrf_token %}-->
+
+
+
+                <!--    <div><label for="rejection_reason">Rejection Reason:</label></div>-->
+
+
+
+                <!--    <textarea name="rejection_reason" id="rejection_reason"  required></textarea>-->
+
+
+
+                <!--    <input type="submit" value="Submit">-->
+
+
+
+                <!-- </form>-->
+
+
+
+                <!--</td>-->
+
+
+
+            </tr>
+
+
+
+        {% endfor %}
+
+
+
+
+
+    </tbody>
+
+</table>
+
+              </div>
+
+            </section>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+
+    const rejectLinks = document.querySelectorAll('.reject-link');
+
+
+
+    
+
+
+
+rejectLinks.forEach(link => {
+
+
+
+    link.addEventListener('click', event => {
+
+
+
+        const rejectForm = event.target.nextElementSibling;
+
+
+
+        rejectForm.classList.toggle('show');
+
+
+
+    });
+
+
+
+});
+
+</script>
+
+<!--<script src="{%static 'js/apply_candidate.js' %}"></script>-->
+
+{%endblock%}

@@ -1,0 +1,1 @@
+from simplisolve_us.wsgi import application

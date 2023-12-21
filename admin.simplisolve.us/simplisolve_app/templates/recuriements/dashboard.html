@@ -1,0 +1,254 @@
+{%extends 'master_login.html'%} {% block title %}Dashboard{% endblock %} 
+{% load static %} {% block logout%}
+
+<li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+
+{%endblock%} {% block main %}
+
+<style>
+  .link_a {
+
+    border-radius: 2px;
+
+    
+
+    display: block;
+
+    margin: 10px 0;
+
+
+
+    color:white;
+
+    background-color:#47b2e4;
+
+
+
+    text-decoration:none;
+
+
+
+    font-weight: bold;
+
+
+
+    position: relative;
+
+
+
+    padding: 20px;
+
+  }
+
+
+
+  .link_a:hover {
+
+
+
+    color: red;
+
+
+
+    border-radius: 5px;
+
+
+
+    background-color: white;
+
+
+
+    color: goldenrod;
+
+
+
+
+
+
+
+
+
+
+
+  }
+
+
+
+  .notification-icon {
+
+
+
+    position: absolute;
+
+
+
+    top: 0;
+
+
+
+    left: 0;
+
+
+
+    width: 20px;
+
+
+
+    height: 20px;
+
+
+
+    background-color: #f26627;
+
+
+
+    border-radius: 50%;
+
+
+
+    display: none;
+
+
+
+  }
+
+
+
+
+
+
+
+  .new-data .notification-icon {
+
+
+
+    display: block;
+
+
+
+  }
+
+
+
+  .new-data-indicator {
+
+
+
+    background-color: #42b983;
+
+
+
+    color: white;
+
+
+
+    font-size: 10px;
+
+
+
+    padding: 2px 5px;
+
+
+
+    border-radius: 5px;
+
+
+
+    margin-left: 5px;
+  }
+
+
+
+  h1 {
+
+
+
+    font-family: 'Arial', sans-serif;
+
+
+
+    font-size: 36px;
+
+
+
+    color: silver;
+
+
+
+    text-align: center;
+
+
+
+    margin-top: 20px;
+
+
+
+    margin-bottom: 10px;
+
+
+
+    text-transform: uppercase;
+
+
+
+    letter-spacing: 2px;
+
+
+
+  }
+</style>
+
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+    <ol>
+      <li><a href="https://simplisolve.us">Home</a></li>
+
+      <li>Interview Management</li>
+    </ol>
+
+    <h2>Interview Management</h2>
+  </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<section class="inner-page">
+  <div class="container">
+    <!-- ======= Portfolio Section ======= -->
+
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Interview Management</h2>
+
+          <section id="contact" class="contact d-flex justify-content-center">
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch container">
+              <div class="container">
+                <form class="php-email-form hello">
+                  {% csrf_token %}
+
+                  <a class="link_a" id="apply-link" href="{% url 'apply_candidate' %}">Apply Interview Candidate 
+                    {% if new_data_added %}<span class="new-data-indicator">new 🔔</span>{% endif %}   </a>
+
+                  <a class="link_a" href="{%url 'reject_candidates'%}">Rejected Candidates</a>
+
+                  <a class="link_a" href="{%url 'display_scores'%}">Interview Score Data</a>
+
+                  <a class="link_a" href="{%url 'pending' %}">Call Pending Candidates</a>
+
+                  <a class="link_a" href="{%url 'inter' %}">Interview Pending Candidates</a>
+
+                  <a class="link_a" href="{%url 'Selected_candidates' %}">Selected Candidates</a>
+                </form>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <!-- End Portfolio Section -->
+  </div>
+</section>
+
+<script src="{% static 'js/dashboard.js' %}"></script>
+
+{% endblock %}

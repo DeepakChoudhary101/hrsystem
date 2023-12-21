@@ -1,0 +1,97 @@
+{%extends 'master_login.html' %} {% block title %}Interview process{% endblock%}
+{% load static %} {% block logout%}
+<li><a class="getstarted scrollto" href="{% url 'logout' %}">Log Out</a></li>
+{%endblock%} {% block main %}
+<style>
+  .link_a {
+    border-radius: 2px;
+    color: white;
+    margin: auto;
+    background-color: #47b2e4;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 20px;
+    border: none;
+    width: 60%;
+    display: block;
+  }
+
+  .link_a:hover {
+    border-radius: 5px;
+    background-color: white;
+    color: goldenrod;
+  }
+
+  .detai {
+    width: 60%;
+    background: rgba(40, 58, 90, 0.9);
+    display: block;
+    margin: auto;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  label {
+    margin: 10px;
+  }
+</style>
+<main id="main">
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <ol>
+        <li><a href="https://admin.simplisolve.us/dashboard/">Dashboard</a></li>
+        <li>Interview Whole process</li>
+      </ol>
+    </div>
+  </section>
+  <section class="inner-page">
+    <div class="container">
+      <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Interview whole process</h2>
+            <!-- Apply Candidate Form -->
+            <div class="apply_candidate_form">
+              <div class="detai">
+                <div class="lia">
+                  <label for="candidate_name">Name:-</label>
+                  {{ interview_candidate.first_name }}
+                  {{interview_candidate.last_name }}<br>
+                  <label for="candidate_name">Position:-</label>
+                  {{ interview_candidate.post }}
+                </div>
+              </div>
+              <a href="{% url 'review_salary' interview_candidate.id1 %}" class="link_a">Review & Salary</a>
+              <a href="{% url 'rejectdata' interview_candidate.id1 %}" class="link_a">Reject</a>
+              <a href="{% url 'send_invitation_technical' interview_candidate.id1 %}" class="link_a">Send Invitation
+                Technical</a>
+              <a href="{% url 'send_invitation_coding' interview_candidate.id1 %}" class="link_a">Send Invitation
+                Coding</a>
+              <a href="{% url 'show_dates_technical' interview_candidate.id1 %}" class="link_a">Show Dates Technical</a>
+              <a href="{% url 'show_dates_coding' interview_candidate.id1 %}" class="link_a">Show Dates Coding</a>
+              <a href="{% url 'show_technical_score' interview_candidate.id1 %}" class="link_a">Show Technical Score</a>
+
+
+              <form method="post" action="{% url 'accept1' interview_candidate.id1 %}">
+                {% csrf_token %}
+
+                <button class="link_a" type="submit" name="interview_type" value="technical" {% if technical_score_exists %}disabled style="pointer-events: none" {% endif %}>
+                  {% if technical_score_exists %}Technical Interview Completed &#x1F60A;{% else %}Start Technical Interview{% endif %}
+                </button>
+                
+                <button class="link_a" type="submit" name="interview_type" value="coding" {% if coding_score_exists %}disabled style="pointer-events: none" {% endif %}>
+                  {% if coding_score_exists %}Coding Interview Completed &#x1F60A;{% else %}Start Coding Interview{% endif %}
+                </button>
+                <button class="link_a" type="submit" name="interview_type" value="decision">
+                  Final Decision
+                </button>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+{% endblock %}

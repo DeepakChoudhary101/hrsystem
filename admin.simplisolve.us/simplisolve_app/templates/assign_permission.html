@@ -1,0 +1,6 @@
+<!-- assign_permission.html -->
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Assign Permission</button>
+</form>

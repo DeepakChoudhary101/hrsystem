@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .score-item {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .score-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .topic {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .update-form {
+            margin-top: 10px;
+        }
+        .update-form input[type="submit"] {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .question-box {
+            margin-bottom: 10px;
+        }
+        .question-box span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .question-box input[type="number"] {
+            padding: 5px;
+        }
+        .question-box label {
+            display: block;
+            margin-left: 40%;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Scores BY User ID: {{ request.user }}</h1>
+
+{% for score in scores %}
+    <div class="score-item">
+        <div class="score-details">
+            <div class="alert-message">
+            </div>
+            
+            <span class="topic">Topic: {{ score.topic }}</span>
+        
+            <form class="update-form" action="{% url 'update_marks' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="score_topic" value="{{ score.topic }}">
+                <input type="hidden" name="score_id" value="{{ score.id1 }}">
+
+                <div class="question-box">
+                    
+                    <span>Question 1: {{ score.question1 }}</span>
+                    <label>Marks: <input type="number" name="marks1" value="{{ score.marks1 }}" placeholder="Marks for Q1"></label>
+                </div>
+                <div class="question-box">
+                    <span>Question 2: {{ score.question2 }}</span>
+                    <label>Marks: <input type="number" name="marks2" value="{{ score.marks2 }}" placeholder="Marks for Q2"></label>
+                </div>
+                <div class="question-box">
+                    <span>Question 3: {{ score.question3 }}</span>
+                    <label>Marks: <input type="number" name="marks3" value="{{ score.marks3 }}" placeholder="Marks for Q3"></label>
+                </div>
+                <div class="question-box">
+                    <span>Question 4: {{ score.question4 }}</span>
+                    <label>Marks: <input type="number" name="marks4" value="{{ score.marks4 }}" placeholder="Marks for Q4"></label>
+                </div>
+                <input type="submit" value="Update Marks">
+            </form>
+        </div>
+    </div>
+    <script>
+        // Function to remove messages after a certain duration
+        function removeMessages() {
+            setTimeout(function() {
+                let messages = document.getElementsByClassName('alert-message');
+                for (let i = 0; i < messages.length; i++) {
+                    messages[i].style.display = 'none';
+                }
+            }, 20000);  // 2000 milliseconds = 2 seconds
+        }
+    
+        // Call the function when the page loads
+        window.onload = function() {
+            removeMessages();
+        };
+    </script>
+    
+{% endfor %}
+
+</body>
+</html>

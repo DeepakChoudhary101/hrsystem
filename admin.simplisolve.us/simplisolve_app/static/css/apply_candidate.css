@@ -1,0 +1,64 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+#helo
+{
+    border: 1px solid blue;
+    border-radius: 8px;
+    background-color:yellow;
+    color:black;
+    width: fit-content;
+    padding: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hide the form by default */
+.reject-form {
+display: none;
+margin-top: 10px;
+}
+
+/* Style the text input and submit button */
+.reject-form input[type="text"] {
+width: 100%;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 5px;
+margin-right: 10px;
+}
+.reject-form input[type="submit"] {
+background-color: red;
+color: white;
+border: none;
+padding: 6px 12px;
+border-radius: 5px;
+cursor: pointer;
+}
+.reject-form {
+display: none;
+margin-top: 10px;
+}
+
+.reject-form.show {
+display: block;
+}

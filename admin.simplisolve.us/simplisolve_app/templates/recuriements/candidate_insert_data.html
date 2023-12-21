@@ -1,0 +1,276 @@
+{%extends 'master.html'%}
+{% load static %}
+{% block title%}Career{%endblock%}
+{% block main%}  
+
+<style>
+.new-list{
+    padding:5px;
+}
+section
+{
+    padding:0;
+}
+
+.submit{
+        color: #ffffff;
+        background-color: #47B2E4;
+        font-family: "Open Sans", Sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: none;
+        font-style: normal;
+        text-decoration: none;
+        line-height: 24px;
+        border-style: none;
+        border-radius: 50px 50px 50px 50px;
+        padding: 12px 20px 12px 20px;
+        min-width: 180px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .job_desc{
+        color: #47b2e4;
+  font-weight: 600;
+  font-size: 18px;
+
+
+    }
+
+
+</style>
+
+
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <ol>
+      <li><a href="https://simplisolve.us">Home</a></li>
+      <li>Career</li>
+    </ol>
+   
+
+  </div>
+</section><!-- End Breadcrumbs -->
+
+<!--<section class="inner-page">-->
+  <!-- {% comment %} <div class="container"> {% endcomment %} -->
+
+
+<!-- ======= Portfolio Section ======= -->
+<!-- {% comment %} <section id="portfolio" class="portfolio">{% endcomment %} -->
+  <!-- {% comment %} <div class="container" data-aos="fade-up">  {% endcomment %} -->
+
+    <!--<div class="section-title">-->
+      <!--<h2>Career</h2></div>-->
+        <section id="why-us" class="why-us  section-bg ">
+            <div class="container-fluid d-flex justify-content-center " data-aos="fade-up">
+      
+              <!-- {% comment %} <div class="row "> {% endcomment %} -->
+      
+                <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1 contact">
+                    
+      
+                  <div class="content">
+                    <h3>Available Jobs at  <strong>SimpliSolve</strong></h3>
+                    <p>
+                      Please take a look at the job listings below:
+                    </p>
+                  </div>
+      
+                  <div class="accordion-list">
+                    <ul>
+                      <li>
+                        <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span>
+                            Data Scientist 
+                            <!-- <i class="bx bx-chevron-up icon-close"></i> -->
+                            <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                        </a>
+                        <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                          <h5 class="my-3 job_desc">
+                            Key Responsibilities:
+                          </h5>
+                          
+                          <ul style="list-style:square; margin:20px;">
+                            <li style="padding: 0" >Make thoughtful decisions around which methods/algorithms are likely to work well in solving the business problem at hand.</li>
+                            <li style="padding: 0">Consider the quality of the available input data and build robust systems that will work well in the presence of noise/errors.</li>
+                            <li style="padding: 0"> Measure the model output in practical real-world settings and iterate your approach.</li>
+                            <!-- <li style="padding: 0">Feature Selection: Identify relevant features and optimize them for model performance and efficiency.</li> -->
+                            
+                            <!-- <li style="padding: 0"> Quickly develop and iterate on prototype models to test various approaches and hypotheses. This may involve using libraries and frameworks like scikit-learn, TensorFlow, or PyTorch</li> -->
+                          </ul>
+                        
+                          <h5 class="my-3 job_desc">
+                            Requirements:
+                          </h5>
+
+                          <ul style="list-style:square; margin:20px;">
+                            <li style="padding: 0" >Experience in LLM and Generative AI</li>
+                            <li style="padding: 0"> Experience in Document extraction/chat</li>
+                            <li style="padding: 0"> You are experienced with SQL, handling large-scale data, and are comfortable with at least one programming language (Python, R, etc.).</li>
+                            <li style="padding: 0">Experience working in a cloud-native environment such as AWS</li>
+                            
+                            <li style="padding: 0"> Experience supporting ML models development on big data infrastructure (on knowledge graph would be a bonus)</li>
+                            <li style="padding: 0"> You have experience building ML models using modern ML approaches like Neural Nets or Tree-ensembles from scratch for new applications - making decisions relating to which supervised labels to use, the metric to optimize for, and the features likely to be useful.</li>
+                         
+                            
+                        
+                        </ul>
+
+                        <div class="text-center my-4">
+                           
+                                <a href="data_scientist"> <button type="submit" class="submit">Apply Now </button></a>
+                           
+                          </div>
+    
+
+                        </div>
+                      </li>
+      
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Machine Learning Engineer <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                            <h5 class="my-3 job_desc">
+                                Key Responsibilities:
+                              </h5>
+                              
+                              <ul style="list-style:square; margin:20px;">
+                                <li style="padding: 0" >Data Engineering: Collect, preprocess, and clean data to make it suitable for machine learning tasks. This may involve data wrangling, feature engineering, and data augmentation.</li>
+                                <li style="padding: 0">Feature Selection: Identify relevant features and optimize them for model performance and efficiency.</li>
+                                <li style="padding: 0">  Model Evaluation: Assess model performance using appropriate metrics, conduct cross-validation, and fine-tune hyperparameters to improve model accuracy and generalization.</li>
+                                <li style="padding: 0">Model Deployment: Deploy machine learning models into production environments, often using containerization (e.g., Docker) and orchestration tools (e.g., Kubernetes).</li>
+                                
+                                <li style="padding: 0">  Monitoring and Maintenance: Implement monitoring and logging systems to track model performance, and proactively address issues that may arise in production.</li>
+                              </ul>
+                            
+                              <h5 class="my-3 job_desc">
+                                Requirements:
+                              </h5>
+    
+                              <ul style="list-style:square ; margin:20px;">
+                                <li style="padding: 0" >Programming Skills: Proficiency in programming languages such as Python or R, as well as experience with relevant libraries and frameworks.</li>
+                                <li style="padding: 0"> Machine Learning Knowledge: Strong understanding of machine learning algorithms, techniques, and concepts.</li>
+                                <li style="padding: 0"> Relationships. Ability to build and effectively manage relationships with business leaders and external constituents</li>
+                                <li style="padding: 0">Experience working in a cloud-native environment such as AWS</li>
+                                
+                                <li style="padding: 0">  Culture. Excellent judgement, impeccable ethics, and a strong team player; desire to succeed and grow in a fast-paced, demanding and entrepreneurial Company.</li>
+                                <li style="padding: 0"> Strong communication skills (developing performant robotic solutions requires cross-team communication/collaboration)</li>
+                             
+                                
+                            
+                            </ul>
+    
+                            <div class="text-center my-4">
+                               
+                                    <a href="machine_learning"> <button type="submit" class="submit">Apply Now </button></a>
+                               
+                              </div>
+                        </div>
+                      </li>
+      
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Software Application Developer <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                            <h5 class="my-3 job_desc">
+                                Key Responsibilities:
+                              </h5>
+                              
+                              <ul style="list-style:square ; margin:20px;">
+                                <li style="padding: 0" >Designing, troubleshooting, and implementing software code for end-to-end software development.</li>
+                                <li style="padding: 0">Ensures software standards are met. Analyzes user needs and software requirements to determine feasibility of design within time and cost constraints.</li>
+                                <li style="padding: 0"> Troubleshoots production problems related to software applications.</li>
+                                <li style="padding: 0">Initiate action for evaluation and recommendation of application software packages, application integration, and testing tools.</li>
+                                
+                                <li style="padding: 0">  Implement recommendations for improving documentation and development process standards
+                                </li>
+                              </ul>
+                            
+                              <h5 class="my-3 job_desc">
+                                Requirements:
+                              </h5>
+    
+                              <ul style="list-style:square; margin:20px;">
+                                <li style="padding: 0" >Programming Skills: Proficiency in programming languages such as Python or R, as well as experience with relevant libraries and frameworks.</li>
+                                <li style="padding: 0"> Experience with two or more of the following: SQL, Silk, JSON, Data Analytics, MongoDB, Elastic Search, Postgres, Kubernetes, Docker, AWS, View Jazz Framework, Process Automation, UI Development, CI/CD knowledge</li>
+                                <li style="padding: 0"> Expertise in build automation, continuous integration, and deployment .
+                                </li>
+                                <li style="padding: 0">Experience working in a cloud-native environment such as AWS</li>
+                                
+                                
+                                
+                             
+                                
+                            
+                            </ul>
+    
+                            <div class="text-center my-4">
+                               
+                                    <a href="software_application"> <button type="submit" class="submit">Apply Now</button></a>
+                                
+                              </div>
+                        </div>
+                      </li>
+      
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed"><span>04</span> Research Scientist <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list">
+                            <h5 class="my-3 job_desc">
+                                Key Responsibilities:
+                              </h5>
+                              
+                              <ul style="list-style:square ; margin:20px;">
+                                <li style="padding: 0"> Use your deep understanding of machine learning to tackle meaningful technical problems.</li>
+                                <li style="padding: 0">Collaborate with product development teams to transfer your ideas into product solutions.
+                                </li>
+                                <li style="padding: 0"> Perform fundamental research by defining, designing, implementing, and evaluating algorithms.</li>
+                                <li style="padding: 0">Actively engage with the academic community by collaborating with universities, publishing and presenting your work, and attending conferences.
+                                </li>
+                                
+                                <li style="padding: 0"> Be results-oriented in the face of ambiguous problems and uncertain outcomes.
+                                </li>
+                              </ul>
+                            
+                              <h5 class="my-3 job_desc">
+                                Requirements:
+                              </h5>
+    
+                              <ul style="list-style:square ; margin:20px;">
+                                <li style="padding: 0" >Proven experience as a machine learning researcher with research publications in the model compression (quantization/pruning) or generative AI / NLG / LLMs space.</li>
+                                <li style="padding: 0"> Strong background in deep learning with expertise in one or more of computer vision, NLP, speech, reinforcement learning, generative models, etc.</li>
+                                <li style="padding: 0"> Knowledge of common ML frameworks (like PyTorch or Keras) and libraries (like NumPy and scikit-learn)
+                                </li>
+                                <li style="padding: 0">Strong research background, as demonstrated through papers and a graduate degree (MS or PhD) in Electrical Engineering, Computer Sciences, Mathematics, or equivalent experience</li>
+                                
+                                <li style="padding: 0">  Ability to explain and present analysis and machine learning concepts to a broad technical audience.
+                                </li>
+                                
+                             
+                                
+                            
+                            </ul>
+    
+                            <div class="text-center my-4">
+                               
+                                   <a href="research_scientist">  <button type="submit" class="submit">Apply Now </button></a>
+                              
+                              </div>
+
+                        </div>
+                      </li>
+      
+                      
+      
+                    </ul>
+                  </div>
+      
+                </div>
+      
+                <!-- {% comment %} <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("{% static 'img1/AI-PNG-Picture.png' %}");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div> {% endcomment %} -->
+              </div>
+      
+            </div>
+          </section>
+          {% endblock%}
+    
+ 

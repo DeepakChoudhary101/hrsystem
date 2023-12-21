@@ -1,0 +1,347 @@
+{%extends 'master.html'%} {%block title %}Career{%endblock%} {%block main%}
+
+<style>
+  .form-container form .file-upload .resume-text #id_resume {
+    max-width: 235px;
+
+    width: 100%;
+
+    display: block;
+
+    margin: 0 auto 0;
+
+    padding: 0 6px;
+  }
+
+  .form-container form .file-upload {
+    margin: 0 auto 0;
+
+    display: block;
+
+    text-align: center;
+  }
+
+  .form-container form .file-upload .file-input-label {
+    font-size: 13px;
+
+    line-height: 20px;
+
+    max-width: 200px;
+
+    height: 40px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #0201011f;
+
+    border-radius: 4px;
+
+    margin: 0 auto 28px;
+  }
+
+  .contact .php-email-form select:focus {
+    border-color: #47b2e4;
+  }
+
+  .form-container .field-wrapper .phone-number-group {
+    width: 100%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    justify-content: space-between;
+  }
+
+  .form-container .field-wrapper .phone-number-group #id_code {
+    width: 65px;
+
+    padding: 6px;
+
+    text-align: center;
+  }
+
+  .form-container .field-wrapper .phone-number-group #id_phone_number {
+    width: calc(98% - 65px);
+  }
+
+  .form-container form input,
+  .form-container form select {
+    font-family: "Open Sans", Sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    text-transform: none;
+
+    font-style: normal;
+
+    text-decoration: none;
+
+    line-height: 24px;
+
+    background-color: #ffffff;
+
+    border-color: #0201011f;
+
+    border-width: 1px 1px 1px 1px;
+
+    border-radius: 4px 4px 4px 4px;
+
+    width: 100%;
+
+    height: 44px;
+
+    padding: 6px 14px;
+
+    box-sizing: border-box;
+  }
+
+  .form-container form .button-wrapp .submit-btn {
+    color: #ffffff;
+
+    background-color: #47b2e4;
+
+    font-family: "Open Sans", Sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    text-transform: none;
+
+    font-style: normal;
+
+    text-decoration: none;
+
+    line-height: 24px;
+
+    border-style: none;
+
+    border-radius: 50px 50px 50px 50px;
+
+    padding: 12px 20px 12px 20px;
+
+    min-width: 180px;
+
+    margin: 0 auto;
+
+    display: block;
+  }
+</style>
+
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <ol>
+        <li><a href="/">Home</a></li>
+
+        <li>Career</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- End Breadcrumbs -->
+
+  <!-- ======= Contact Section ======= -->
+
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Career</h2>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <!--<div class="col-lg-5 d-flex align-items-stretch">-->
+
+        <!--  <div class="info">-->
+
+        <!--    <div class="address">-->
+
+        <!--      <i class="bi bi-geo-alt"></i>-->
+
+        <!--      <h4>Location:</h4>-->
+
+        <!--      <p>-->
+
+        <!--        13151 Emily Rd Ste 100-C<br />-->
+
+        <!--        Dallas, TX 75240-8966<br />-->
+
+        <!--        United States-->
+
+        <!--      </p>-->
+
+        <!--    </div>-->
+
+        <!--    <div class="email">-->
+
+        <!--      <i class="bi bi-envelope"></i>-->
+
+        <!--      <h4>Email:</h4>-->
+
+        <!--      <p>info@simplisolve.us</p>-->
+
+        <!--    </div>-->
+
+        <!--    <div class="phone">-->
+
+        <!--      <i class="bi bi-phone"></i>-->
+
+        <!--      <h4>Call:</h4>-->
+
+        <!--      <p>+1 775 338 9105</p>-->
+
+        <!--    </div>-->
+
+        <!--        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.9135747012656!2d-96.7697064251661!3d32.926881576313605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c2039a6cf98a5%3A0x2f49e8847e17f1b2!2s13151%20Emily%20Rd%20100%20c%2C%20Dallas%2C%20TX%2075240%2C%20USA!5e0!3m2!1sen!2sbd!4v1697143587002!5m2!1sen!2sbd" -->
+
+        <!--        style="width:100%;height:290px;border:0;" -->
+
+        <!--        allowfullscreen -->
+
+        <!--        loading="lazy" -->
+
+        <!--        referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
+        <!-- </div>-->
+
+        <!--</div>-->
+
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch contact">
+          {% load static %}
+
+          <div class="container form-container">
+            <span class="divider"></span>
+
+            <form
+              method="post"
+              enctype="multipart/form-data"
+              class="php-email-form"
+            >
+              {% csrf_token %}
+              
+
+              <div class="field-wrapper two-col-wrapp">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="{{ form.first_name.id_for_label }}"
+                      >First Name:</label
+                    >
+
+                    {{ form.first_name }}
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="{{ form.last_name.id_for_label }}"
+                      >Last Name:</label
+                    >
+
+                    {{ form.last_name }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+
+                {{ form.email }} {% if form.email.errors %}
+
+                <ul class="errorlist">
+                  {% for error in form.email.errors %}
+
+                  <li>{{ error }}</li>
+
+                  {% endfor %}
+                </ul>
+
+                {% endif %}
+              </div>
+
+              <div class="field-wrapper">
+                <div class="form-group">
+                  <label for="id_country_code">Select Country:</label>
+
+                  {{ form.country_code }}
+                </div>
+
+                <!--<div class="form-group">-->
+
+                <!--<label for="id_country_name" >Country Name:</label>-->
+
+                <!--<input type="hidden" name="field_name" value="{{ form.country_name }}"/>-->
+
+                <!--{{form.country_name}}-->
+
+                <!--</div> -->
+              </div>
+
+              <div class="field-wrapper">
+                <div class="form-group">
+                  <label for="{{ form.phone_number.id_for_label }}"
+                    >Phone Number:</label
+                  >
+
+                  <div class="phone-number-group">
+                    <label for="id_code"></label>
+
+                    {{form.code}} {{ form.phone_number}}
+                  </div>
+
+                  {% if form.phone_number.errors %}
+
+                  <ul class="errorlist">
+                    {% for error in form.phone_number.errors %}
+
+                    <li>{{ error }}</li>
+
+                    {% endfor %}
+                  </ul>
+
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="form-group file-upload">
+                <label for="id_resume" class="file-input-label"
+                  >Upload Resume (PDF only):</label
+                >
+
+                <span class="resume-text">{{ form.resume }}</span>
+
+                <span id="resume-error" class="text-danger"></span>
+              </div>
+
+              <div class="button-wrapp">
+                <button type="submit" class="submit-btn">Submit</button>
+              </div>
+            </form>
+          </div>
+
+          <!--{% block extra_scripts %}-->
+
+          <!--{% endblock %}-->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End Contact Section -->
+</main>
+
+<!-- End #main -->
+
+<script src="{% static 'js/candidate_insert1.js' %}"></script>
+
+{%endblock%}

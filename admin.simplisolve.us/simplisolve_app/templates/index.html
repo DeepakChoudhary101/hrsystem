@@ -1,0 +1,853 @@
+{% extends "master.html" %}
+{%block title%}Welcome to SimpliSolve{%endblock%}
+{%block main%}
+{%load static%}
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <h1>Empowering Your Business with AI Brilliance</h1>
+
+          <h2>
+            Where Academic Mastery Meets Industry Ingenuity. Multiply Profits,
+            Trim Expenses, Supercharge Efficiency.
+          </h2>
+
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="/#clients" class="btn-get-started scrollto"
+              >Get Started</a
+            >
+
+            <a
+              href="https://youtu.be/oxXpB9pSETo"
+              class="glightbox btn-watch-video"
+              ><i class="bi bi-play-circle"></i><span>Watch Video</span></a
+            >
+          </div>
+        </div>
+
+        <div
+          class="col-lg-6 order-1 order-lg-2 hero-img"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <img
+            src="{% static 'img1/banner-image.png'%}""
+            class="img-fluid animated"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= Clients Section ======= -->
+
+    <section id="clients" class="clients section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>We worked with</h2>
+        </div>
+
+        <div class="row" data-aos="zoom-in">
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img src="{% static 'img1/clients/AFRL.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <!-- <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+
+          <img src="{% static 'img1/clients/NGIA.png'%}" class="img-fluid" alt="">
+
+        </div> -->
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/NGIA2.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img src="{% static 'img1/clients/NASA.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/usarmy.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img src="{% static 'img1/clients/NSF.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/Raytheon.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img src="{% static 'img1/clients/dod.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img src="{% static 'img1/clients/utsw.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img src="{% static 'img1/clients/nih.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img src="{% static 'img1/clients/nsa.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/afosr.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/Hewlett.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/Sandia.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img src="{% static 'img1/clients/IBM.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/Tektronix.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/cisco.svg'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/nokia.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/alcatel.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img src="{% static 'img1/clients/twb.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img src="{% static 'img1/clients/bang.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/Capital_One.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/Bayer.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/tasacom.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="{% static 'img1/clients/Caltrans.png'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Cliens Section -->
+
+    <!-- ======= About Us Section ======= -->
+
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>About Us</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              SimpliSolve is a team of academic and industry experts from
+              diverse fileds to develop innovative AI algorithms and models
+              that transform complex data into actionable insights. Our
+              solutions empower businesses to optimize processes, make
+              informed decisions, and gain a competitive edge in today's
+              data-driven world. We are,
+            </p>
+
+            <ul>
+              <li>
+                <i class="bi bi-trophy"></i> Industry leaders pioneered in
+                serving close to billion customers utilizing AI.
+              </li>
+
+              <li>
+                <i class="bi bi-trophy"></i> Academic leaders with decades of
+                extensive reserach experience.
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <ul>
+              <li>
+                <i class="ri-check-double-line"></i> We solve business
+                problems utilizing mathematics, statistics and advanced AI.
+              </li>
+
+              <li>
+                <i class="ri-check-double-line"></i> We leverage GPUs with
+                massive datasets to train AI models for your business.
+              </li>
+
+              <li>
+                <i class="ri-check-double-line"></i> We deploy the AI
+                infrastructures and models in your environment.
+              </li>
+
+              <li>
+                <i class="ri-check-double-line"></i> We provide easy to use
+                front end both for business stakeholders and customers.
+              </li>
+            </ul>
+
+            <a href="#" class="btn-learn-more"
+              >Want to let us know about your business problem?</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About Us Section -->
+
+    <!-- ======= Services Section ======= -->
+
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Services</h2>
+
+          <p>
+            Revolutionizing business efficiency, SimpliSolve seamlessly
+            integrates cutting-edge AI solutions, empowering businesses to
+            unlock new realms of productivity, innovation, and success.
+          </p>
+        </div>
+
+        <div class="row">
+          <div
+            class="col-xl-3 col-md-6 d-flex align-items-stretch"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="icon-box">
+              <div class="icon"><i class="bi-chat-square-dots-fill"></i></div>
+
+              <h4>
+                <a href="https://apps.simplisolve.us/Conversational_ai_service"
+                  >Conversational AI</a
+                >
+              </h4>
+
+              <p>
+                End to end customer servicing solutions with chatbot,
+                minimizing service calls, saving companies millions and
+                enhancing customer satisfaction by minimizing wait time and
+                faster task completion.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="icon-box">
+              <div class="icon"><i class="bi-bag-fill"></i></div>
+
+              <h4>
+                <a href="https://apps.simplisolve.us/Sales_and_decisions_service"
+                  >Sales & Decisions</a
+                >
+              </h4>
+
+              <p>
+                Boost sales through AI-driven recommendations tailored to
+                customer behavior. Guide customers to make complex decisions,
+                from investments to purchases.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="icon-box">
+              <div class="icon"><i class="bi-graph-up"></i></div>
+
+              <h4>
+                <a href="https://apps.simplisolve.us/Deep_forecasting_service">Deep Forecasting</a>
+              </h4>
+
+              <p>
+                Harness the power of AI tools for accurate and profound
+                forecasting. Predict trends and outcomes with precision,
+                empowering informed decisions for the future.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="icon-box">
+              <div class="icon"><i class="bi-robot"></i></div>
+
+              <h4><a href="https://apps.simplisolve.us/Generative_ai_service">Generative AI</a></h4>
+
+              <p>
+                Explore our AI tools harnessing Generative AI for audio,
+                images, and text creation. Also defend against potential
+                security risks by detecting fake audio, images and texts with
+                our advanced protection tools.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-globe-americas"></i></div>
+
+              <h4>
+                <a href="https://apps.simplisolve.us/Targeted_marketing_service"
+                  >Targeted Marketing</a
+                >
+              </h4>
+
+              <p>
+                Leverage AI tools for precision-targeted marketing campaigns,
+                maximizing reach and impact. Unlock data-driven insights to
+                optimize strategies and engage your audience effectively.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="icon-box">
+              <div class="icon"><i class="bi-bar-chart-line"></i></div>
+
+              <h4>
+                <a href="https://apps.simplisolve.us/Data_governance_service">Data Governance</a>
+              </h4>
+
+              <p>
+                Accelerate business decision by refining unstructured data and
+                presenting it through dashboards, empowering business leaders
+                with vital analysis tools to gain value from big data.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="icon-box">
+              <div class="icon"><i class="bi-flag"></i></div>
+
+              <h4>
+                <a href="https://apps.simplisolve.us/Election_campaign_service"
+                  >Election Campaign</a
+                >
+              </h4>
+
+              <p>
+                Elevate your campaign strategy with AI tools leveraging
+                advanced social network analysis. Harness dynamic insights
+                from connections, ensuring targeted outreach for a compelling
+                voter impact.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="icon-box">
+              <div class="icon"><i class="bi-body-text"></i></div>
+
+              <h4>
+                <a
+                  href="https://apps.simplisolve.us/Talk_to_documents_service"
+                  >Talk to Documents</a
+                >
+              </h4>
+
+              <p>
+                Imagine having a super-smart tool that talks to you like a
+                helpful friend. It makes understanding documents like PDFs and
+                Excel sheets really easy. You can ask it questions, and it
+                tells you instantly the summary and show you charts.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- https://icons.getbootstrap.com/#icons -->
+      </div>
+    </section>
+    <!-- End Services Section -->
+
+    <!-- ======= Why Us Section ======= -->
+
+    <section id="why-us" class="why-us section-bg">
+      <div class="container-fluid" data-aos="fade-up">
+        <div class="row">
+          <div
+            class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch order-2 order-lg-1"
+          >
+            <div class="content">
+              <h3>Why to choose <strong>SimpliSolve</strong></h3>
+
+              <p>
+                We have dedicated experts to deliver state of art AI for your
+                business very quickly with resonable cost.
+              </p>
+            </div>
+
+            <div class="accordion-list">
+              <ul>
+                <li>
+                  <a
+                    data-bs-toggle="collapse"
+                    class="collapse"
+                    data-bs-target="#accordion-list-1"
+                    ><span>01</span> Tailored AI Solutions for Specific
+                    Business Needs <i class="bx bx-chevron-down icon-show"></i
+                    ><i class="bx bx-chevron-up icon-close"></i
+                  ></a>
+
+                  <div
+                    id="accordion-list-1"
+                    class="collapse show"
+                    data-bs-parent=".accordion-list"
+                  >
+                    <p>
+                      SimpliSolve stands out by delivering AI solutions that
+                      are customized to address the unique challenges and
+                      requirements of each business. Instead of offering
+                      generic solutions, they take the time to understand the
+                      intricacies of a business's operations, goals, and pain
+                      points. This approach ensures that the AI solutions
+                      implemented are precisely tailored to deliver maximum
+                      impact and efficiency, ultimately leading to improved
+                      outcomes and better ROI.
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a
+                    data-bs-toggle="collapse"
+                    data-bs-target="#accordion-list-2"
+                    class="collapsed"
+                    ><span>02</span> Proven Track Record of Success
+                    <i class="bx bx-chevron-down icon-show"></i
+                    ><i class="bx bx-chevron-up icon-close"></i
+                  ></a>
+
+                  <div
+                    id="accordion-list-2"
+                    class="collapse"
+                    data-bs-parent=".accordion-list"
+                  >
+                    <p>
+                      SimpliSolve has established a solid track record of
+                      successfully implementing AI solutions across various
+                      industries. Their portfolio of past projects
+                      demonstrates their expertise in designing, developing,
+                      and deploying AI-driven systems that drive growth,
+                      streamline processes, and enhance decision-making. By
+                      choosing SimpliSolve, businesses can tap into a wealth
+                      of experience and proven methodologies that have
+                      consistently yielded positive results.
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a
+                    data-bs-toggle="collapse"
+                    data-bs-target="#accordion-list-3"
+                    class="collapsed"
+                    ><span>03</span> End-to-End Service and Support
+                    <i class="bx bx-chevron-down icon-show"></i
+                    ><i class="bx bx-chevron-up icon-close"></i
+                  ></a>
+
+                  <div
+                    id="accordion-list-3"
+                    class="collapse"
+                    data-bs-parent=".accordion-list"
+                  >
+                    <p>
+                      One of the key advantages of choosing SimpliSolve is
+                      their commitment to providing comprehensive support
+                      throughout the AI adoption journey. From the initial
+                      consultation and strategy development to implementation,
+                      integration, and ongoing maintenance, SimpliSolve offers
+                      end-to-end services. This means that businesses can rely
+                      on a single partner to guide them at every stage,
+                      reducing the complexities often associated with
+                      integrating AI technologies and ensuring a smooth and
+                      successful deployment.
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a
+                    data-bs-toggle="collapse"
+                    data-bs-target="#accordion-list-4"
+                    class="collapsed"
+                    ><span>04</span> Reasonable Cost, Maximum Value, Measured
+                    ROI and Performance
+                    <i class="bx bx-chevron-down icon-show"></i
+                    ><i class="bx bx-chevron-up icon-close"></i
+                  ></a>
+
+                  <div
+                    id="accordion-list-4"
+                    class="collapse"
+                    data-bs-parent=".accordion-list"
+                  >
+                    <p>
+                      SimpliSolve understands the importance of
+                      cost-effectiveness. Their pricing model ensures that you
+                      receive exceptional AI solutions without breaking the
+                      bank. It's an investment that yields substantial
+                      returns, aligning perfectly with your budgetary
+                      considerations. SimpliSolve doesn't just provide AI
+                      solutions; they offer quantifiable results. Their focus
+                      on measuring Return on Investment (ROI) and performance
+                      metrics means you can tangibly assess the value their
+                      solutions bring to your business. This data-driven
+                      approach reinforces the effectiveness of their
+                      offerings.
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a
+                    data-bs-toggle="collapse"
+                    data-bs-target="#accordion-list-5"
+                    class="collapsed"
+                    ><span>05</span> Uncompromised Privacy Assurance
+                    <i class="bx bx-chevron-down icon-show"></i
+                    ><i class="bx bx-chevron-up icon-close"></i
+                  ></a>
+
+                  <div
+                    id="accordion-list-5"
+                    class="collapse"
+                    data-bs-parent=".accordion-list"
+                  >
+                    <p>
+                      Privacy concerns are paramount, and SimpliSolve
+                      prioritizes them. Their AI solutions are designed with
+                      robust privacy measures, safeguarding your sensitive
+                      data. You can trust in their commitment to maintaining
+                      the confidentiality and integrity of your information.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
+            style="background-image: url({% static 'img1/why-us.png' %})"
+            data-aos="zoom-in"
+            data-aos-delay="150"
+          >
+            &nbsp;
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Why Us Section -->
+
+    <!-- ======= Skills Section ======= -->
+
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div
+            class="col-lg-6 d-flex align-items-center"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <img src="{% static 'img1/skills.png'%}" class="img-fluid" alt="" />
+          </div>
+
+          <div
+            class="col-lg-6 pt-4 pt-lg-0 content"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
+            <h3>Our strengths</h3>
+
+            <p class="fst-italic">
+              SimpliSolve possesses extensive skills and expertise to adeptly
+              tackle a wide array of data-driven business challenges through
+              the power of AI.
+            </p>
+
+            <div class="skills-content">
+              <div class="progress">
+                <span class="skill"
+                  >AI, Mathematics, statistics, computer science<i class="val"
+                    >100%</i
+                  ></span
+                >
+
+                <div class="progress-bar-wrap">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="100"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill"
+                  >mlops - deployment in cloud (AWS, AZURE, GCP)<i class="val"
+                    >100%</i
+                  ></span
+                >
+
+                <div class="progress-bar-wrap">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="100"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill"
+                  >Data governance and anlytics <i class="val">100%</i></span
+                >
+
+                <div class="progress-bar-wrap">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="100"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill"
+                  >Software Backend development <i class="val">80%</i></span
+                >
+
+                <div class="progress-bar-wrap">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="80"
+                    aria-valuemin="0"
+                    aria-valuemax="80"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill"
+                  >Software front-end designing <i class="val">50%</i></span
+                >
+
+                <div class="progress-bar-wrap">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="50"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Skills Section -->
+
+    <!-- ======= Cta Section ======= -->
+
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3>Call To Action</h3>
+
+            <p> 
+              Ready to take your business to the next level? Let our expert
+              team help you achieve your goals. Contact us today for a
+              consultation and discover how we can drive success together.
+              Your journey to excellence starts here.
+            </p>
+          </div>
+
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a
+              class="cta-btn align-middle"
+              href="Call_to_action"
+              >Call To Action</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Cta Section -->
+  </main>
+{%endblock%} 
